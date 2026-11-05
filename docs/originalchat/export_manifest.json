@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "exported_at_utc": "2026-11-05T13:49:17.899326+00:00",
+  "export_method": "Local session item_completed UserMessage/AgentMessage events plus original request_user_input calls and their human responses; completed turns only.",
+  "transcripts": [
+    {
+      "title": "SE Chat",
+      "thread_id": "01a15369-50ed-7f20-86d5-a01ff9fb066e",
+      "json": "SE_Chat.json",
+      "markdown": "SE_Chat.md",
+      "entries": 75,
+      "user_messages": 18,
+      "assistant_messages": 53,
+      "questionnaires": 2,
+      "questionnaire_answers": 2,
+      "attachments": 3,
+      "missing_attachments": 0,
+      "first_entry_utc": "2026-10-19T09:07:14.313Z",
+      "last_entry_utc": "2026-10-29T21:45:56.467Z",
+      "source_log_sha256": "a1b299d453ebe2155774ec789192194f11fab2a88cbac77e312a641fc39493ef",
+      "source_log_bytes": 25468683
+    },
+    {
+      "title": "SE Prompt Chat",
+      "thread_id": "01a188e7-7083-7561-8b5e-12f0fb403488",
+      "json": "SE_Prompt_Chat.json",
+      "markdown": "SE_Prompt_Chat.md",
+      "entries": 45,
+      "user_messages": 12,
+      "assistant_messages": 31,
+      "questionnaires": 2,
+      "questionnaire_answers": 0,
+      "attachments": 2,
+      "missing_attachments": 0,
+      "first_entry_utc": "2026-10-29T18:24:59.185Z",
+      "last_entry_utc": "2026-11-05T13:39:48.953Z",
+      "source_log_sha256": "15bcbb159e328d9465840e96c5d4cbe0e68a05ced5b57bea9344afe2e3f0b97a",
+      "source_log_bytes": 7621419
+    }
+  ],
+  "files": [
+    {
+      "path": "assets/SE_Chat_272fba6e63d4b8ae.png",
+      "bytes": 93960,
+      "sha256": "272fba6e63d4b8ae5756e8bef5d0500b8d0f2ae11591a348b5c4ce219dc5f1bb"
+    },
+    {
+      "path": "assets/SE_Chat_367dacebc3ef04da.png",
+      "bytes": 33629,
+      "sha256": "367dacebc3ef04da8cf0f87f7c3d076cf9dcb54780e3f770e9e68f729cc0ca5f"
+    },
+    {
+      "path": "assets/SE_Chat_62f19cf08c897265.png",
+      "bytes": 63066,
+      "sha256": "62f19cf08c897265a30554473ed2aeee0588f49ffdcffbbf1d85b2504150d2cc"
+    },
+    {
+      "path": "assets/SE_Prompt_Chat_8d05cdc375c9bf4f.png",
+      "bytes": 19686,
+      "sha256": "8d05cdc375c9bf4ff2dae989a2e97ce623caf187d862880bea6b34e852d81b16"
+    },
+    {
+      "path": "assets/SE_Prompt_Chat_8efb0d3952459e62.png",
+      "bytes": 21150,
+      "sha256": "8efb0d3952459e62e953a62e772a08219a5ecb2198c30a6ecd0b8d9805d0d82e"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2312,
+      "sha256": "0971d9515ea021d32eb50a2884ba3dd8ac81ef90cf5137c2d57e62e0e16a3f90"
+    },
+    {
+      "path": "SE_Chat.json",
+      "bytes": 79700,
+      "sha256": "1a9c28d753c4991f36e926761a44d71067ffbaa1aa691becb614fcfdf4c45c51"
+    },
+    {
+      "path": "SE_Chat.md",
+      "bytes": 59049,
+      "sha256": "5774c307f11ed1868ea4edf34dcc8f6a381cf1b4bc5e261fc6168f9d0002deed"
+    },
+    {
+      "path": "SE_Prompt_Chat.json",
+      "bytes": 44366,
+      "sha256": "e1721f4728e4183815b64d3d7ebc3851eef97c86df7adce7d0244da3003bbda6"
+    },
+    {
+      "path": "SE_Prompt_Chat.md",
+      "bytes": 32243,
+      "sha256": "6eef472ccbe669cddde42297b081ee1368efcd7bc6aa32cfd684da0ae77ae32e"
+    }
+  ],
+  "redactions": [],
+  "scope_exclusions": [
+    "System/developer instructions",
+    "Internal reasoning",
+    "Tool execution logs and outputs other than user questionnaires",
+    "Automatically inserted environment messages",
+    "Unfinished turns"
+  ]
+}

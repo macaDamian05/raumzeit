@@ -113,3 +113,9 @@ Das Archiv enthält Code, Dokumentation, aktuelle Ergebnisse und Screenshots, ab
 Die tatsächlichen Rückmeldungen sind in docs/pruefung_ergebnisse.md und docs/persoenliche_ergebnisse.json dokumentiert. Die persönlich geprüfte, überarbeitete und freigegebene Reflexion liegt in docs/persoenliche_reflexion.md und wird im Portfolio unverändert übernommen. Die zusätzliche persönliche Code-Durchsicht wurde ausgelassen und bleibt als Grenze dokumentiert. Der vom Studierenden selbst gestartete 118-Test-Lauf einschließlich Screenshot und Rohberichten ist separat unter docs/nachweise/P5_Nutzerlauf_2026-10-29 erhalten. Er wird durch neue KI-gestützte Abschlussläufe nicht überschrieben. Die ursprüngliche Prüfanleitung steht in docs/eigene_pruefung.md; der Kolloquiumsleitfaden in docs/kolloquium.md.
 
 Der Abgleich der verfügbaren Vorgaben und die daraus nicht belegten Informationen stehen in docs/abgabecheck.md. Finale Dateien: output/portfolio/Portfolio_Justin_Kolar_Raumzeit.pdf und output/dist/Raumzeit_Projekt.zip; Prüfsummen: output/dist/Pruefsummen.json. Vor der tatsächlichen Einreichung bleiben die nicht vorliegenden aktuellen Moodle-Vorgaben, Abgabeweg und genaue Uhrzeit zu prüfen. Es wurde nichts eingereicht oder versandt.
+
+## Originalchat-Exporte für das Kolloquium
+
+Die am 05.11.2026 nachgereichten [Originaldialoge stehen unter docs/originalchat/](docs/originalchat/README.md): der ursprüngliche Umsetzungschat **SE Chat** sowie der ergänzende Review-Chat **SE Prompt Chat**. Beide liegen als lesbare Markdown-Datei und strukturierte JSON-Datei mit Zeitangaben vor. Die ursprünglichen Bildanlagen und die tatsächlichen Fragebogenantworten sind enthalten. Umfang, Format und SHA-256-Prüfsummen sind im Exportverzeichnis dokumentiert. Interne Systemanweisungen und Denkprotokolle gehören nicht zum Dialogexport.
+
+Die Exporte ergänzen den damaligen Abgabestand. Die bereits erstellte Portfolio-PDF und ihre historischen Prüfnachweise bleiben unverändert.
