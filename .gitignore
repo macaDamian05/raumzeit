@@ -10,6 +10,7 @@ node_modules/
 output/playwright/artifacts/
 output/playwright/html-report/
 output/history/
+output/screenshots/
 output/dist/
 output/test-temp*/
 *.secret
