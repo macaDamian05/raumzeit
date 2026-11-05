@@ -1,0 +1,12 @@
+{
+  "timestamp_utc": "2026-10-29T21:11:54.986544+00:00",
+  "method": "Flask-Testclient; Antwort einschließlich JSON-Dekodierung; 5 Aufwärmläufe; 100 Messungen",
+  "rooms": 10,
+  "bookings": 1000,
+  "samples": 100,
+  "median_ms": 9.335,
+  "p95_ms": 10.32,
+  "max_ms": 14.377,
+  "target_p95_ms": 250,
+  "passed": true
+}

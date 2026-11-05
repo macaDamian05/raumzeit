@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="2" time="0.378" timestamp="2026-10-29T19:47:30.931084+01:00" hostname="DamiansPC"><testcase classname="tests.test_review_regressions" name="test_non_ascii_csrf_is_forbidden" time="0.051"><failure message="TypeError: comparing strings with non-ASCII characters is not supported">tests\test_review_regressions.py:5: in test_non_ascii_csrf_is_forbidden
+    response = client.post(
+.venv\Lib\site-packages\werkzeug\test.py:1171: in post
+    return self.open(*args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\flask\testing.py:235: in open
+    response = super().open(
+.venv\Lib\site-packages\werkzeug\test.py:1120: in open
+    response_parts = self.run_wsgi_app(request.environ, buffered=buffered)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\werkzeug\test.py:992: in run_wsgi_app
+    rv = run_wsgi_app(self.application, environ, buffered=buffered)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\werkzeug\test.py:1268: in run_wsgi_app
+    app_rv = app(environ, start_response)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\flask\app.py:1536: in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\flask\app.py:1514: in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\flask\app.py:1511: in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\flask\app.py:919: in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\flask\app.py:915: in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\flask\app.py:1291: in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+raumzeit\web.py:43: in protect_changes
+    if not token or not secrets.compare_digest(token, session.get("csrf", "")):
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   TypeError: comparing strings with non-ASCII characters is not supported</failure></testcase><testcase classname="tests.test_review_regressions" name="test_stale_room_edit_http_preserves_current_record" time="0.054"><failure message="assert 200 == 409&#10; +  where 200 = &lt;WrapperTestResponse streamed [200 OK]&gt;.status_code">tests\test_review_regressions.py:22: in test_stale_room_edit_http_preserves_current_record
+    assert stale.status_code == 409
+E   assert 200 == 409
+E    +  where 200 = &lt;WrapperTestResponse streamed [200 OK]&gt;.status_code</failure></testcase></testsuite></testsuites>

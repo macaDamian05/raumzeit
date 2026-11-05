@@ -1,0 +1,22 @@
+{
+  "timestamp_utc": "2026-10-29T18:59:31.735956+00:00",
+  "method": "Migration und erneute Initialisierung einer isolierten Kopie vorhandener Datenbanken; Originaldateien nur lesend ge\u00f6ffnet",
+  "databases": [
+    {
+      "source": "demo.sqlite3",
+      "rooms": 4,
+      "bookings": 13,
+      "schema_after": 2,
+      "passed": true,
+      "original_unchanged": true
+    },
+    {
+      "source": "raumzeit.sqlite3",
+      "rooms": 0,
+      "bookings": 0,
+      "schema_after": 2,
+      "passed": true,
+      "original_unchanged": true
+    }
+  ]
+}

@@ -1,0 +1,258 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "D:\\Uni und Arbeit\\Software Engineering\\Raumplaner\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "output\\qa\\e06-isolated.config.cjs",
+      "--project",
+      "desktop",
+      "--grep",
+      "E06",
+      "--max-failures=1"
+    ],
+    "configFile": "D:\\Uni und Arbeit\\Software Engineering\\Raumplaner\\output\\qa\\e06-isolated.config.cjs",
+    "rootDir": "D:/Uni und Arbeit/Software Engineering/Raumplaner/browser_tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 1,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/Uni und Arbeit/Software Engineering/Raumplaner/output/qa/e06-isolated-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "D:/Uni und Arbeit/Software Engineering/Raumplaner/browser_tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "D:/Uni und Arbeit/Software Engineering/Raumplaner/output/qa/e06-isolated-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile",
+        "name": "mobile",
+        "testDir": "D:/Uni und Arbeit/Software Engineering/Raumplaner/browser_tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\Uni und Arbeit\\Software Engineering\\Raumplaner\\output\\qa\\e06-isolated-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "desktop",
+        "testDir": "D:\\Uni und Arbeit\\Software Engineering\\Raumplaner\\browser_tests",
+        "snapshotDir": "D:\\Uni und Arbeit\\Software Engineering\\Raumplaner\\browser_tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5051",
+          "locale": "de-DE",
+          "timezoneId": "Europe/Berlin",
+          "browserName": "chromium",
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "viewport": {
+            "width": 1280,
+            "height": 900
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "D:\\Uni und Arbeit\\Software Engineering\\Raumplaner\\output\\tests\\e06-before.json"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "D:\\Uni und Arbeit\\Software Engineering\\Raumplaner\\output\\tests\\e06-before.xml"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": {
+      "command": "node tools/browser_server.cjs",
+      "url": "http://127.0.0.1:5051/api/config",
+      "reuseExistingServer": false,
+      "timeout": 30000,
+      "gracefulShutdown": {
+        "signal": "SIGTERM",
+        "timeout": 3000
+      },
+      "cwd": "D:\\Uni und Arbeit\\Software Engineering\\Raumplaner"
+    }
+  },
+  "suites": [
+    {
+      "title": "raumzeit.spec.js",
+      "file": "raumzeit.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "E06 Wochennavigation Raumfilter und Suche",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "browserVersion",
+                  "description": "156.0.8078.4"
+                },
+                {
+                  "type": "room",
+                  "description": "E06 desktop"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 8417,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m1\u001b[39m\nReceived:   \u001b[31m1\u001b[39m\n\nCall Log:\n- Timeout 7000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m1\u001b[39m\nReceived:   \u001b[31m1\u001b[39m\n\nCall Log:\n- Timeout 7000ms exceeded while waiting on the predicate\n    at D:\\Uni und Arbeit\\Software Engineering\\Raumplaner\\browser_tests\\raumzeit.spec.js:220:83",
+                    "location": {
+                      "file": "D:\\Uni und Arbeit\\Software Engineering\\Raumplaner\\browser_tests\\raumzeit.spec.js",
+                      "column": 83,
+                      "line": 220
+                    },
+                    "snippet": "  218 |   await expect(eventFor(page, title, testInfo.project.name)).toBeVisible();\n  219 |   await page.locator(\"#room-filter\").selectOption(\"\");\n> 220 |   await expect.poll(() => page.locator(\"#day-columns .calendar-booking\").count()).toBeGreaterThan(1);\n      |                                                                                   ^\n  221 |   await page.getByRole(\"link\", { name: /^Alle Buchungen/ }).click();\n  222 |   await page.locator(\"#booking-search\").fill(\"TEST PERSON\");\n  223 |   await expect.poll(() => page.locator(\"#booking-list .booking-row\").count()).toBeGreaterThan(1);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Uni und Arbeit\\Software Engineering\\Raumplaner\\browser_tests\\raumzeit.spec.js",
+                        "column": 83,
+                        "line": 220
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m1\u001b[39m\nReceived:   \u001b[31m1\u001b[39m\n\nCall Log:\n- Timeout 7000ms exceeded while waiting on the predicate\n\n  218 |   await expect(eventFor(page, title, testInfo.project.name)).toBeVisible();\n  219 |   await page.locator(\"#room-filter\").selectOption(\"\");\n> 220 |   await expect.poll(() => page.locator(\"#day-columns .calendar-booking\").count()).toBeGreaterThan(1);\n      |                                                                                   ^\n  221 |   await page.getByRole(\"link\", { name: /^Alle Buchungen/ }).click();\n  222 |   await page.locator(\"#booking-search\").fill(\"TEST PERSON\");\n  223 |   await expect.poll(() => page.locator(\"#booking-list .booking-row\").count()).toBeGreaterThan(1);\n    at D:\\Uni und Arbeit\\Software Engineering\\Raumplaner\\browser_tests\\raumzeit.spec.js:220:83"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T19:33:58.160Z",
+                  "annotations": [
+                    {
+                      "type": "browserVersion",
+                      "description": "156.0.8078.4"
+                    },
+                    {
+                      "type": "room",
+                      "description": "E06 desktop"
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\Uni und Arbeit\\Software Engineering\\Raumplaner\\output\\qa\\e06-isolated-artifacts\\raumzeit-E06-Wochennavigation-Raumfilter-und-Suche-desktop\\test-failed-1.png"
+                    },
+                    {
+                      "name": "UI-Nachweis",
+                      "contentType": "image/png",
+                      "path": "D:\\Uni und Arbeit\\Software Engineering\\Raumplaner\\output\\qa\\e06-isolated-artifacts\\raumzeit-E06-Wochennavigation-Raumfilter-und-Suche-desktop\\attachments\\UI-Nachweis-a9a03470cd21db0a6503f42d4d8b89dacef9b926.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Uni und Arbeit\\Software Engineering\\Raumplaner\\output\\qa\\e06-isolated-artifacts\\raumzeit-E06-Wochennavigation-Raumfilter-und-Suche-desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Uni und Arbeit\\Software Engineering\\Raumplaner\\output\\qa\\e06-isolated-artifacts\\raumzeit-E06-Wochennavigation-Raumfilter-und-Suche-desktop\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Uni und Arbeit\\Software Engineering\\Raumplaner\\browser_tests\\raumzeit.spec.js",
+                    "column": 83,
+                    "line": 220
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "4841ffbe833b2d22f04e-e2905299caf496168b70",
+          "file": "raumzeit.spec.js",
+          "line": 204,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "message": "\u001b[31mTesting stopped early after 1 maximum allowed failures.\u001b[39m"
+    }
+  ],
+  "stats": {
+    "startTime": "2026-10-29T19:33:56.882Z",
+    "duration": 10116.863000000001,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

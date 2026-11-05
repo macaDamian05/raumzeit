@@ -1,0 +1,14 @@
+{
+  "name": "raumzeit-local-quality",
+  "version": "1.1.0",
+  "private": true,
+  "scripts": {
+    "test:browser": "playwright test",
+    "format:frontend": "prettier --write raumzeit/templates/index.html raumzeit/static/app.css raumzeit/static/app.js",
+    "check:format": "prettier --check raumzeit/templates/index.html raumzeit/static/app.css raumzeit/static/app.js"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1",
+    "prettier": "3.9.10"
+  }
+}

@@ -1,0 +1,883 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.EXE",
+      "D:\\Uni und Arbeit\\Software Engineering\\Raumplaner\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--max-failures=1"
+    ],
+    "configFile": "D:\\Uni und Arbeit\\Software Engineering\\Raumplaner\\playwright.config.js",
+    "rootDir": "D:/Uni und Arbeit/Software Engineering/Raumplaner/browser_tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 1,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/Uni und Arbeit/Software Engineering/Raumplaner/output/playwright/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "D:/Uni und Arbeit/Software Engineering/Raumplaner/browser_tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "D:/Uni und Arbeit/Software Engineering/Raumplaner/output/playwright/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile",
+        "name": "mobile",
+        "testDir": "D:/Uni und Arbeit/Software Engineering/Raumplaner/browser_tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\Uni und Arbeit\\Software Engineering\\Raumplaner\\output\\playwright\\artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "desktop",
+        "testDir": "D:\\Uni und Arbeit\\Software Engineering\\Raumplaner\\browser_tests",
+        "snapshotDir": "D:\\Uni und Arbeit\\Software Engineering\\Raumplaner\\browser_tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5051",
+          "locale": "de-DE",
+          "timezoneId": "Europe/Berlin",
+          "browserName": "chromium",
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "viewport": {
+            "width": 1280,
+            "height": 900
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\Uni und Arbeit\\Software Engineering\\Raumplaner\\output\\playwright\\artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "mobile",
+        "testDir": "D:\\Uni und Arbeit\\Software Engineering\\Raumplaner\\browser_tests",
+        "snapshotDir": "D:\\Uni und Arbeit\\Software Engineering\\Raumplaner\\browser_tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5051",
+          "locale": "de-DE",
+          "timezoneId": "Europe/Berlin",
+          "browserName": "chromium",
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "isMobile": true,
+          "hasTouch": true
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "mobile"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "output/playwright/results.json"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "output/playwright/junit.xml"
+        }
+      ],
+      [
+        "D:\\Uni und Arbeit\\Software Engineering\\Raumplaner\\tools\\browser_reporter.cjs",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": {
+      "command": "node tools/browser_server.cjs",
+      "url": "http://127.0.0.1:5051/api/config",
+      "reuseExistingServer": false,
+      "timeout": 30000,
+      "gracefulShutdown": {
+        "signal": "SIGTERM",
+        "timeout": 3000
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "raumzeit.spec.js",
+      "file": "raumzeit.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "E01 Buchung anlegen und nach Neuladen erhalten",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "browserVersion",
+                  "description": "156.0.8078.4"
+                },
+                {
+                  "type": "room",
+                  "description": "E01 desktop"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 968,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T21:12:21.975Z",
+                  "annotations": [
+                    {
+                      "type": "browserVersion",
+                      "description": "156.0.8078.4"
+                    },
+                    {
+                      "type": "room",
+                      "description": "E01 desktop"
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "UI-Nachweis",
+                      "contentType": "image/png",
+                      "path": "D:\\Uni und Arbeit\\Software Engineering\\Raumplaner\\output\\playwright\\artifacts\\raumzeit-E01-Buchung-anlegen-und-nach-Neuladen-erhalten-desktop\\attachments\\UI-Nachweis-32444c27433923a167d1dc8b3ddde18124d3d992.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4841ffbe833b2d22f04e-fc9c476c3bd67e5f8d7f",
+          "file": "raumzeit.spec.js",
+          "line": 94,
+          "column": 1
+        },
+        {
+          "title": "E02 Überschneidung ablehnen und Bestand erhalten",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "browserVersion",
+                  "description": "156.0.8078.4"
+                },
+                {
+                  "type": "room",
+                  "description": "E02 desktop"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1126,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T21:12:23.045Z",
+                  "annotations": [
+                    {
+                      "type": "browserVersion",
+                      "description": "156.0.8078.4"
+                    },
+                    {
+                      "type": "room",
+                      "description": "E02 desktop"
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "UI-Nachweis",
+                      "contentType": "image/png",
+                      "path": "D:\\Uni und Arbeit\\Software Engineering\\Raumplaner\\output\\playwright\\artifacts\\raumzeit-E02-Überschneidung-ablehnen-und-Bestand-erhalten-desktop\\attachments\\UI-Nachweis-028caffdb44ac1b4a2cae8753cf32a657afe27cc.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4841ffbe833b2d22f04e-d6a760cf2b7107241b2c",
+          "file": "raumzeit.spec.js",
+          "line": 111,
+          "column": 1
+        },
+        {
+          "title": "E03 Buchung bearbeiten und stornieren",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "browserVersion",
+                  "description": "156.0.8078.4"
+                },
+                {
+                  "type": "room",
+                  "description": "E03 desktop"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1257,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T21:12:24.180Z",
+                  "annotations": [
+                    {
+                      "type": "browserVersion",
+                      "description": "156.0.8078.4"
+                    },
+                    {
+                      "type": "room",
+                      "description": "E03 desktop"
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "UI-Nachweis",
+                      "contentType": "image/png",
+                      "path": "D:\\Uni und Arbeit\\Software Engineering\\Raumplaner\\output\\playwright\\artifacts\\raumzeit-E03-Buchung-bearbeiten-und-stornieren-desktop\\attachments\\UI-Nachweis-34b083e05858032d8a4ff82e0789ff8dedf310e0.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4841ffbe833b2d22f04e-b687f8c5ab682debfc21",
+          "file": "raumzeit.spec.js",
+          "line": 124,
+          "column": 1
+        },
+        {
+          "title": "E04 15-Minuten-Termin lesbar öffnen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "browserVersion",
+                  "description": "156.0.8078.4"
+                },
+                {
+                  "type": "room",
+                  "description": "E04 desktop"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1088,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T21:12:25.445Z",
+                  "annotations": [
+                    {
+                      "type": "browserVersion",
+                      "description": "156.0.8078.4"
+                    },
+                    {
+                      "type": "room",
+                      "description": "E04 desktop"
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "UI-Nachweis",
+                      "contentType": "image/png",
+                      "path": "D:\\Uni und Arbeit\\Software Engineering\\Raumplaner\\output\\playwright\\artifacts\\raumzeit-E04-15-Minuten-Termin-lesbar-öffnen-desktop\\attachments\\UI-Nachweis-ea9555d6da4a9ef1879fe723612ab59cb6b4b42e.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4841ffbe833b2d22f04e-122710284a076cf37fdc",
+          "file": "raumzeit.spec.js",
+          "line": 151,
+          "column": 1
+        },
+        {
+          "title": "E05 Veralteter Raumdialog überschreibt keine Änderung",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "browserVersion",
+                  "description": "156.0.8078.4"
+                },
+                {
+                  "type": "room",
+                  "description": "E05 desktop"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1077,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T21:12:26.542Z",
+                  "annotations": [
+                    {
+                      "type": "browserVersion",
+                      "description": "156.0.8078.4"
+                    },
+                    {
+                      "type": "room",
+                      "description": "E05 desktop"
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "UI-Nachweis",
+                      "contentType": "image/png",
+                      "path": "D:\\Uni und Arbeit\\Software Engineering\\Raumplaner\\output\\playwright\\artifacts\\raumzeit-E05-Veralteter-Ra-7852a-überschreibt-keine-Änderung-desktop\\attachments\\UI-Nachweis-853196948394ca2a94a1ef33670a73d52ad244b1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4841ffbe833b2d22f04e-f3fcad805592f13ceff1",
+          "file": "raumzeit.spec.js",
+          "line": 182,
+          "column": 1
+        },
+        {
+          "title": "E06 Wochennavigation Raumfilter und Suche",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "browserVersion",
+                  "description": "156.0.8078.4"
+                },
+                {
+                  "type": "room",
+                  "description": "E06 desktop"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1725,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T21:12:27.627Z",
+                  "annotations": [
+                    {
+                      "type": "browserVersion",
+                      "description": "156.0.8078.4"
+                    },
+                    {
+                      "type": "room",
+                      "description": "E06 desktop"
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "UI-Nachweis",
+                      "contentType": "image/png",
+                      "path": "D:\\Uni und Arbeit\\Software Engineering\\Raumplaner\\output\\playwright\\artifacts\\raumzeit-E06-Wochennavigation-Raumfilter-und-Suche-desktop\\attachments\\UI-Nachweis-a9a03470cd21db0a6503f42d4d8b89dacef9b926.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4841ffbe833b2d22f04e-e2905299caf496168b70",
+          "file": "raumzeit.spec.js",
+          "line": 208,
+          "column": 1
+        },
+        {
+          "title": "E01 Buchung anlegen und nach Neuladen erhalten",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "browserVersion",
+                  "description": "156.0.8078.4"
+                },
+                {
+                  "type": "room",
+                  "description": "E01 mobile"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1030,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T21:12:29.802Z",
+                  "annotations": [
+                    {
+                      "type": "browserVersion",
+                      "description": "156.0.8078.4"
+                    },
+                    {
+                      "type": "room",
+                      "description": "E01 mobile"
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "UI-Nachweis",
+                      "contentType": "image/png",
+                      "path": "D:\\Uni und Arbeit\\Software Engineering\\Raumplaner\\output\\playwright\\artifacts\\raumzeit-E01-Buchung-anlegen-und-nach-Neuladen-erhalten-mobile\\attachments\\UI-Nachweis-803d7c6cf838ff316875858f57caa5d2dbe743ec.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4841ffbe833b2d22f04e-3f66ae21cf251337ccac",
+          "file": "raumzeit.spec.js",
+          "line": 94,
+          "column": 1
+        },
+        {
+          "title": "E02 Überschneidung ablehnen und Bestand erhalten",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "browserVersion",
+                  "description": "156.0.8078.4"
+                },
+                {
+                  "type": "room",
+                  "description": "E02 mobile"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1093,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T21:12:30.931Z",
+                  "annotations": [
+                    {
+                      "type": "browserVersion",
+                      "description": "156.0.8078.4"
+                    },
+                    {
+                      "type": "room",
+                      "description": "E02 mobile"
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "UI-Nachweis",
+                      "contentType": "image/png",
+                      "path": "D:\\Uni und Arbeit\\Software Engineering\\Raumplaner\\output\\playwright\\artifacts\\raumzeit-E02-Überschneidung-ablehnen-und-Bestand-erhalten-mobile\\attachments\\UI-Nachweis-bdf5aa34c057a6fdb4ade93ec75e70e5ef088855.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4841ffbe833b2d22f04e-5d2a14a5091427ebe795",
+          "file": "raumzeit.spec.js",
+          "line": 111,
+          "column": 1
+        },
+        {
+          "title": "E03 Buchung bearbeiten und stornieren",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "browserVersion",
+                  "description": "156.0.8078.4"
+                },
+                {
+                  "type": "room",
+                  "description": "E03 mobile"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1440,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T21:12:32.033Z",
+                  "annotations": [
+                    {
+                      "type": "browserVersion",
+                      "description": "156.0.8078.4"
+                    },
+                    {
+                      "type": "room",
+                      "description": "E03 mobile"
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "UI-Nachweis",
+                      "contentType": "image/png",
+                      "path": "D:\\Uni und Arbeit\\Software Engineering\\Raumplaner\\output\\playwright\\artifacts\\raumzeit-E03-Buchung-bearbeiten-und-stornieren-mobile\\attachments\\UI-Nachweis-13115dd0694d2d86771fd89f1b5f5d4ff15af3db.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4841ffbe833b2d22f04e-ef0c5ddc9e029cee8ff6",
+          "file": "raumzeit.spec.js",
+          "line": 124,
+          "column": 1
+        },
+        {
+          "title": "E04 15-Minuten-Termin lesbar öffnen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "browserVersion",
+                  "description": "156.0.8078.4"
+                },
+                {
+                  "type": "room",
+                  "description": "E04 mobile"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1014,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T21:12:33.483Z",
+                  "annotations": [
+                    {
+                      "type": "browserVersion",
+                      "description": "156.0.8078.4"
+                    },
+                    {
+                      "type": "room",
+                      "description": "E04 mobile"
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "UI-Nachweis",
+                      "contentType": "image/png",
+                      "path": "D:\\Uni und Arbeit\\Software Engineering\\Raumplaner\\output\\playwright\\artifacts\\raumzeit-E04-15-Minuten-Termin-lesbar-öffnen-mobile\\attachments\\UI-Nachweis-a42479b55e1148282059df44c971b8dd77de3240.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4841ffbe833b2d22f04e-8c7fb53b1a076606843a",
+          "file": "raumzeit.spec.js",
+          "line": 151,
+          "column": 1
+        },
+        {
+          "title": "E05 Veralteter Raumdialog überschreibt keine Änderung",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "browserVersion",
+                  "description": "156.0.8078.4"
+                },
+                {
+                  "type": "room",
+                  "description": "E05 mobile"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 981,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T21:12:34.507Z",
+                  "annotations": [
+                    {
+                      "type": "browserVersion",
+                      "description": "156.0.8078.4"
+                    },
+                    {
+                      "type": "room",
+                      "description": "E05 mobile"
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "UI-Nachweis",
+                      "contentType": "image/png",
+                      "path": "D:\\Uni und Arbeit\\Software Engineering\\Raumplaner\\output\\playwright\\artifacts\\raumzeit-E05-Veralteter-Ra-7852a-überschreibt-keine-Änderung-mobile\\attachments\\UI-Nachweis-fac25bee857ecf3ddb5b3b6a716041c341b19c1d.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4841ffbe833b2d22f04e-fa54505248fca721e6a4",
+          "file": "raumzeit.spec.js",
+          "line": 182,
+          "column": 1
+        },
+        {
+          "title": "E06 Wochennavigation Raumfilter und Suche",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "browserVersion",
+                  "description": "156.0.8078.4"
+                },
+                {
+                  "type": "room",
+                  "description": "E06 mobile"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1892,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T21:12:35.496Z",
+                  "annotations": [
+                    {
+                      "type": "browserVersion",
+                      "description": "156.0.8078.4"
+                    },
+                    {
+                      "type": "room",
+                      "description": "E06 mobile"
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "UI-Nachweis",
+                      "contentType": "image/png",
+                      "path": "D:\\Uni und Arbeit\\Software Engineering\\Raumplaner\\output\\playwright\\artifacts\\raumzeit-E06-Wochennavigation-Raumfilter-und-Suche-mobile\\attachments\\UI-Nachweis-afa1efe141cb7941cc23747a5ff27895b2754d87.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4841ffbe833b2d22f04e-6dc5c0585e8f65f12e16",
+          "file": "raumzeit.spec.js",
+          "line": 208,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-29T21:12:20.695Z",
+    "duration": 16981.004999999997,
+    "expected": 12,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

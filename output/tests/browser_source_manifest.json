@@ -1,0 +1,165 @@
+{
+  "verified_utc": "2026-10-29T21:12:37.715258+00:00",
+  "files": [
+    {
+      "path": ".prettierrc.json",
+      "sha256": "44dff236281fb305bd0122924965d2e2b3cff6731f949692f69c0dd689e5b866"
+    },
+    {
+      "path": "browser_tests/raumzeit.spec.js",
+      "sha256": "ec4d0fdeffb53c8d60e3ab5d49bf0b3dff6eca7eb5585574d17f276a4d6dc9ed"
+    },
+    {
+      "path": "Demo_starten.cmd",
+      "sha256": "956d959f867b792d5929bc2b52d2ecbce5aaf5a414b63cbae4f7be713494d719"
+    },
+    {
+      "path": "Einrichtung.cmd",
+      "sha256": "25b34e36c68ede615297f29363c0746f91e65fe4f2a33d12a6c95c2d18b26e58"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "b50ebca82cddbf03ce1c1898f79661c342dfd3a6ce47c5fdbf3ac63d5d6d9e83"
+    },
+    {
+      "path": "package.json",
+      "sha256": "664304bd97fe4f764fc65753b165ccdd554b937bfa7cfa47d1780bab55c4f8c5"
+    },
+    {
+      "path": "playwright.config.js",
+      "sha256": "b2aebb6b4c1d0d4c7c5e11de6b946509da9013714bdbac66a6b836af5cf2de0d"
+    },
+    {
+      "path": "Pruefung_starten.cmd",
+      "sha256": "82809b9f667c148f40515b895766f8242b6d5cecfe9e7257636cf86a7e5fe5a1"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "365a9f24671f94afe9faba216b3f1bb79f1e384cdd706736a75b6d79ad05e997"
+    },
+    {
+      "path": "raumzeit/__init__.py",
+      "sha256": "71f48467e1ff9a3169186f9223d7bd04b9e312a0114fff071ee4a7b26e556d89"
+    },
+    {
+      "path": "raumzeit/__main__.py",
+      "sha256": "62757943c632aa33387ee9e3e415cdb0c94bd4e030e7be99a9027fd5eb08d42e"
+    },
+    {
+      "path": "raumzeit/application.py",
+      "sha256": "24ae708424c25adfded3b068b69c4fdb327833f4d7ff5307e11e912b831ea4e1"
+    },
+    {
+      "path": "raumzeit/demo.py",
+      "sha256": "cb681990ccd5fa7fdec7b3452f887df7b5cee1afb239642b91a10624f3a6d632"
+    },
+    {
+      "path": "raumzeit/domain.py",
+      "sha256": "ff5a2486632288298e50feede804af61847575cb1cc1bac6daf1b3239a9bf44c"
+    },
+    {
+      "path": "raumzeit/ports.py",
+      "sha256": "51258e5de89abb0a47a8b41705aecc984c52aaea0a2d48c56da1bbd695f12763"
+    },
+    {
+      "path": "raumzeit/static/app.css",
+      "sha256": "9f26224abd1697d3ed17b246f50301087c35e241055f66431a3629504cefd1af"
+    },
+    {
+      "path": "raumzeit/static/app.js",
+      "sha256": "65fedae934fc3b6f9dfb02c5bead1297a594edec23a5f045eb644a587b08283a"
+    },
+    {
+      "path": "raumzeit/static/favicon.svg",
+      "sha256": "73436a39bf55e7467761b6281760639467c722cb73540268cd08a9d75257686c"
+    },
+    {
+      "path": "raumzeit/storage.py",
+      "sha256": "6def057827a93c2756a27360a2912272582690c04883d937740910d684ede873"
+    },
+    {
+      "path": "raumzeit/templates/index.html",
+      "sha256": "384b421517058921efee6fb0ebd21229c97116513840496d152c7460bd3003ee"
+    },
+    {
+      "path": "raumzeit/web.py",
+      "sha256": "c691ea2fbca250a5c3355251992b77b91ab808d1687c4fdab504afffdb7ee7d4"
+    },
+    {
+      "path": "requirements-dev.txt",
+      "sha256": "d374568bbfcbcb7b79ea536c322926b25ff5aabd3d9f830d035ba258de1c0a4c"
+    },
+    {
+      "path": "requirements-portfolio.txt",
+      "sha256": "113cbf5ce08a01ee629f27c1f8f6e2db16ab54f6c206c224cf61e3eaaf9f3a9b"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "96e4688af538e9e6db8518dfcf154782877a6779747a406f88fa28509a798cf8"
+    },
+    {
+      "path": "Starten.cmd",
+      "sha256": "6f5893f9de3d6b9899167bd386f170d96aa52be94a37e134a133824fb6a58f6a"
+    },
+    {
+      "path": "tests/conftest.py",
+      "sha256": "486d4921a1fb90d86a31c15c75ba10bd146bea9ca134b28c86add6b12f841ffe"
+    },
+    {
+      "path": "tests/test_application.py",
+      "sha256": "51e92b5d0f4778259d5ecb6b7d600213766d8ce94ced06c42259c20bc513d9d3"
+    },
+    {
+      "path": "tests/test_domain.py",
+      "sha256": "35653542a70bbbbc2dd49918b40b3282d4e9f870aff65746aec6efc3a73a814d"
+    },
+    {
+      "path": "tests/test_review_regressions.py",
+      "sha256": "4abda0bf70c7006073b2a6f5991c5ef4bd1e4297a5cb640278bfd2980eeea799"
+    },
+    {
+      "path": "tests/test_room_versions.py",
+      "sha256": "d4b2c732da5a7ea055f48ed8490dded809b877298f01478128937d25d3deb7bc"
+    },
+    {
+      "path": "tests/test_web.py",
+      "sha256": "237728c179c02c46c3a43e3126cc41d6ee04d4c260a0a2b18d6288bf0c7d172c"
+    },
+    {
+      "path": "tools/benchmark.py",
+      "sha256": "d0624240c2bed62ae40d7ab32beae447a8cc0643ef585c42fd9cc728a0eb15cc"
+    },
+    {
+      "path": "tools/browser_app.py",
+      "sha256": "fcbf2be866d29b684f1f61cb744306465b1444af86c28545bb8d9d8edf37d953"
+    },
+    {
+      "path": "tools/browser_reporter.cjs",
+      "sha256": "af27d93d1874899108bd5826d45580ed74a53ca090c7e4a60a88df7970933ff1"
+    },
+    {
+      "path": "tools/browser_server.cjs",
+      "sha256": "7afade8daa290ce230f4117ff5c6bfa74e8a9fac6aa2f1b51ad370ea30c457ae"
+    },
+    {
+      "path": "tools/build_portfolio.py",
+      "sha256": "c436f4224b7edb832493012665f42b4088497d712e600d6724007da97d66a4de"
+    },
+    {
+      "path": "tools/check_portfolio.py",
+      "sha256": "af0d604651bc585e5da45c50c151d0418e12b4fd563ed22e10d60a8902f6164d"
+    },
+    {
+      "path": "tools/package_project.py",
+      "sha256": "49f97e0ec356ccd894a081b1e1df83741cada57a10a2d4c8d842abd69d405414"
+    },
+    {
+      "path": "tools/verify.py",
+      "sha256": "d23c93461e75a08d95267ada9876cd9c3dc19a3df37f90e8e6cfbb1fe928c158"
+    },
+    {
+      "path": "tools/verify_browser.py",
+      "sha256": "f4c87c957788ec8335a83201f312836b0c9c78a1dad472c5e477466d8139591c"
+    }
+  ]
+}

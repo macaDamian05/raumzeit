@@ -1,0 +1,720 @@
+[
+  {
+    "title": "1 Problemstellung und methodisches Vorgehen",
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Gemeinsam genutzte Besprechungsräume benötigen eine eindeutige Zuordnung von Raum, Zeitpunkt und verantwortlicher Person. Werden Termine nur als frei bearbeitbare Liste geführt, können sich Zeiten überschneiden oder Änderungen unbemerkt gegenseitig überschreiben. Für diese Arbeit wird deshalb eine lokale Anwendung entwickelt, die Raumdaten und Buchungen verbindet und fachlich unzulässige Zustände bereits beim Speichern zurückweist. Die Zielgruppe ist eine Person, die die Raumbelegung an einem lokalen Arbeitsplatz koordiniert."
+      },
+      {
+        "type": "p",
+        "text": "Die leitende Frage lautet: Wie lässt sich mit einer überschaubaren Python-Webanwendung eine widerspruchsfreie und nachvollziehbare Raumbuchung realisieren und durch ausgeführte Tests überprüfen? Das Ergebnis ist Raumzeit, eine Anwendung mit Wochenkalender, Raumverwaltung, Buchungsdialog und Stornierungshistorie. Erfolg bedeutet hier, dass die spezifizierten Geschäftsregeln erfüllt sind, Daten nach einem Neustart erhalten bleiben und typische Bedienabläufe nachvollziehbar funktionieren. Ein produktionsreifer, öffentlich zugänglicher Mehrbenutzerdienst ist kein Ziel dieser Fallstudie."
+      },
+      {
+        "type": "p",
+        "text": "Methodisch folgt die Arbeit einer entwurfsorientierten Fallstudie mit anforderungsbasierter Verifikation. Aus dem vorgegebenen Problem werden zunächst Nutzerbedürfnisse, priorisierte Anforderungen und beobachtbare Akzeptanzkriterien abgeleitet. Darauf aufbauend werden Architekturentscheidungen dokumentiert, ein ausführbares Artefakt erstellt und die Kriterien durch Unit-, Integrations- und Browserprüfungen untersucht. Sollverhalten und tatsächliche Ergebnisse werden getrennt festgehalten. Aus den Ergebnissen werden Grenzen und Verbesserungen abgeleitet. Es wurden keine Nutzerinterviews oder empirischen Nutzungsstudien durchgeführt; die angenommene Zielgruppe ist daher eine Entwurfsannahme."
+      },
+      {
+        "type": "p",
+        "text": "Die fachlichen Konzepte werden mit den Kursunterlagen [9] und Primärquellen abgeglichen. Die Priorisierung stützt sich auf MoSCoW [1], die Struktur auf getrennte Verantwortlichkeiten [2, 3] und die Verifikation auf mehrere Testgranularitäten [5, 8]. Der Zusammenhang zwischen Anforderungen, Umsetzung und Nachweisen ist über feste Kennungen hergestellt. Damit ist nicht allein das fertige Programm Gegenstand der Bewertung, sondern auch der dokumentierte Weg zu überprüfbaren Ergebnissen."
+      },
+      {
+        "type": "p",
+        "text": "Die Arbeit entstand mit dokumentierter KI-Unterstützung. Der Studierende führte die praktischen Funktionsprüfungen durch, bewertete die Bedienbarkeit und startete die automatisierte Python-Suite selbst. Seine Reflexion wurde KI-gestützt formuliert, von ihm persönlich geprüft, überarbeitet und freigegeben. Kapitel 11 und Anhang D dokumentieren die Beiträge und den tatsächlichen Prüfumfang; die technische Umsetzung und die automatisierten Nachweise sind im KI-Protokoll zugeordnet."
+      }
+    ]
+  },
+  {
+    "title": "2 Projektmanagement und Arbeitsorganisation",
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Das Einzelprojekt wird nach konkreten Ergebnissen und Abnahmekriterien organisiert. Die Planung vom 19.10.2026 bleibt als Baseline erhalten. Am 29.10.2026 wurde die vom Nutzer übermittelte unabhängige Bewertung zum Anlass einer erneuten Verifikation genommen. Die bisherige Suite war grün; zwei ergänzte Regressionstests bestätigten dennoch die gemeldeten Fehler. Damit wurde das Risiko unvollständiger Testauswahl tatsächlich sichtbar."
+      },
+      {
+        "type": "table",
+        "caption": "Zeitplan und tatsächlicher Stand der Überarbeitung",
+        "headers": [
+          "Arbeitspaket",
+          "Termin",
+          "Nachgewiesener Stand"
+        ],
+        "rows": [
+          [
+            "Auftrag, Architektur und erste Anwendung",
+            "19.10.",
+            "Technische Arbeitsfassung erstellt"
+          ],
+          [
+            "Geplante technische Meilensteine",
+            "22.–27.10.",
+            "Bereits am 19.10. erreicht; keine erfundenen Tätigkeiten an den Planterminen"
+          ],
+          [
+            "Befunde reproduzieren und korrigieren",
+            "29.10.",
+            "Fehlerlauf gespeichert; technische und dokumentarische Überarbeitung"
+          ],
+          [
+            "Persönliche Prüfung",
+            "29.10.",
+            "Bedienkontrollen und Testlauf dokumentiert; Reflexion geprüft, überarbeitet und freigegeben"
+          ],
+          [
+            "PDF-Abgabe / Kolloquium",
+            "30.10. / danach",
+            "Einreichung offen; Gesprächstermin nicht belegt"
+          ]
+        ],
+        "widths": [
+          0.35,
+          0.21,
+          0.44
+        ]
+      },
+      {
+        "type": "table",
+        "caption": "Bewertungsmatrix und zugeordnete Nachweise",
+        "headers": [
+          "Bereich",
+          "Gewicht",
+          "Konkreter Beitrag"
+        ],
+        "rows": [
+          [
+            "Projektmanagement",
+            "20 %",
+            "Baseline, Korrekturschleife, Risiken und dokumentierte persönliche Prüfung"
+          ],
+          [
+            "Inhalt",
+            "50 %",
+            "Begründete Fachregeln, Versionsschutz, Migration und ausgeführte Tests"
+          ],
+          [
+            "Struktur und Argumentation",
+            "20 %",
+            "Anforderung → Entscheidung → Test → tatsächliches Ergebnis"
+          ],
+          [
+            "Formales",
+            "10 %",
+            "Einheitliche Zitate, beschriftete Darstellungen und visuelle PDF-Prüfung"
+          ]
+        ],
+        "widths": [
+          0.29,
+          0.13,
+          0.58
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Die wichtigsten Risiken sind gleichzeitige Buchungen, veraltete Dialoge und gemeinsam von KI-Code und KI-Tests übersehene Fehler. Gegenmaßnahmen sind atomare Transaktionen, Versionsprüfungen sowie zusätzliche Grenzfall- und Browserprüfungen. Testdatenbanken sind von Bestandsdaten getrennt. Verbleibende Grenzen sind der begrenzte persönliche Prüfumfang, ein einzelner getesteter Browser und eine nicht untersuchte hohe Mehrbenutzerlast."
+      },
+      {
+        "type": "p",
+        "text": "Die Betreueranforderungen und Themenzustimmung sind nur durch die Nutzernachrichten belegt; es wird keine weitere Kommunikation behauptet. Es gibt keinen eingesehenen Moodle-Nachweis zusätzlicher Vorgaben. Der vollständige Projektverlauf benennt Plantermine, tatsächliche KI-Arbeiten und weiterhin offene Tätigkeiten getrennt."
+      }
+    ]
+  },
+  {
+    "title": "3 Anforderungen und Priorisierung",
+    "blocks": [
+      {
+        "type": "p",
+        "text": "MoSCoW unterscheidet zwingende, wichtige, optionale und ausgeschlossene Anforderungen [1]. Konsistenz und vollständige Buchungsabläufe sind für Raumzeit unverzichtbar; Suchkomfort folgt danach. Die Prioritäten sind begründete Entwurfsentscheidungen, keine Ergebnisse von Nutzerinterviews. Prozentwerte werden nicht aus der bloßen Anzahl der Anforderungen abgeleitet."
+      },
+      {
+        "type": "table",
+        "caption": "Funktionaler Umfang mit MoSCoW-Priorisierung",
+        "headers": [
+          "Kennung",
+          "Anforderung",
+          "Priorität / Stand"
+        ],
+        "widths": [
+          0.13,
+          0.55,
+          0.32
+        ],
+        "rows": [
+          [
+            "F01–F02",
+            "Räume pflegen; veraltete Änderungen abweisen",
+            "Must / umgesetzt"
+          ],
+          [
+            "F03",
+            "Gültige Buchung anlegen",
+            "Must / umgesetzt"
+          ],
+          [
+            "F04",
+            "Überschneidungen im selben Raum verhindern",
+            "Must / umgesetzt"
+          ],
+          [
+            "F05–F06",
+            "Buchung ändern und stornieren",
+            "Must / umgesetzt"
+          ],
+          [
+            "F07",
+            "Daten nach Neustart erhalten",
+            "Must / umgesetzt"
+          ],
+          [
+            "F08",
+            "Arbeitswoche im Kalender anzeigen",
+            "Must / umgesetzt"
+          ],
+          [
+            "F09–F11",
+            "Raumfilter, Suche und Stornierungshistorie",
+            "Should / umgesetzt"
+          ],
+          [
+            "F12",
+            "Getrennte Beispieldaten für die Vorführung",
+            "Could / umgesetzt"
+          ],
+          [
+            "C01–C02",
+            "ICS-Export und Serienbuchungen",
+            "Could / zurückgestellt"
+          ],
+          [
+            "W01–W02",
+            "Anmeldung, Cloudbetrieb und Mailversand",
+            "Won't / ausgeschlossen"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Anhang A enthält die vollständigen Kriterien und Testzuordnungen. Die Überarbeitung ergänzt F02 um Raumversionen, N04 um ungültige Token, N05 um kurze Termine und N07 um Datenmigration."
+      },
+      {
+        "type": "table",
+        "caption": "Nichtfunktionale Anforderungen und messbare Nachweise",
+        "headers": [
+          "ID",
+          "Qualitätsziel",
+          "Prüfkriterium"
+        ],
+        "widths": [
+          0.11,
+          0.29,
+          0.6
+        ],
+        "rows": [
+          [
+            "N01",
+            "Validierung / Must",
+            "Ungültige Angaben werden serverseitig ohne Speicherung abgewiesen"
+          ],
+          [
+            "N02",
+            "Konsistenz / Must",
+            "Von zwei konkurrierenden Doppelbuchungen wird genau eine akzeptiert"
+          ],
+          [
+            "N03",
+            "Antwortzeit / Should",
+            "Lokale Wochenabfrage mit 1.000 Buchungen: empirisches P95 unter 250 ms"
+          ],
+          [
+            "N04",
+            "Lokaler Schutz / Must",
+            "CSRF, Hostprüfung und parametrisierte SQL-Zugriffe"
+          ],
+          [
+            "N05",
+            "Bedienbarkeit / Should",
+            "390-Pixel-Viewport ohne horizontalen Seitenüberlauf; mobile Agenda"
+          ],
+          [
+            "N06",
+            "Reproduzierbarkeit / Must",
+            "Dokumentierte Installation und maschinenlesbare Testergebnisse"
+          ],
+          [
+            "N07",
+            "Datenkompatibilität / Must",
+            "Schema v1 additiv auf v2 migrieren; Altbestand und bestehende Versionen erhalten"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Die Nachweise gelten für den dokumentierten lokalen Aufbau; mobile Tests belegen keine vollständige Barrierefreiheit."
+      }
+    ]
+  },
+  {
+    "title": "4 Akzeptanzkriterien und fachliche Regeln",
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Given-When-Then beschreibt Ausgangslage, Handlung und beobachtbare Folge [9] und begründet die Testauswahl. Buchungen bilden halboffene Intervalle [Beginn, Ende): Ein Folgetermin kann unmittelbar anschließen."
+      },
+      {
+        "type": "diagram",
+        "kind": "intervals",
+        "caption": "Halboffene Intervalle und Entscheidung über eine Überschneidung"
+      },
+      {
+        "type": "table",
+        "caption": "Ausgewählte Akzeptanzfälle für F02 bis F06",
+        "headers": [
+          "Gegeben",
+          "Wenn",
+          "Dann"
+        ],
+        "widths": [
+          0.31,
+          0.33,
+          0.36
+        ],
+        "rows": [
+          [
+            "Raum frei; Kapazität 12",
+            "Sechs Personen buchen 09:00–10:00",
+            "Eine aktive Buchung wird gespeichert"
+          ],
+          [
+            "Aktiv 09:00–10:00",
+            "Gleicher Raum 09:45–10:15",
+            "Konflikt; keine zusätzliche Buchung"
+          ],
+          [
+            "Aktiv 09:00–10:00",
+            "Gleicher Raum 10:00–11:00",
+            "Angrenzender Termin wird akzeptiert"
+          ],
+          [
+            "Raum bietet 12 Plätze",
+            "13 Personen werden eingetragen",
+            "Validierungsfehler; Daten bleiben unverändert"
+          ],
+          [
+            "Buchung wurde inzwischen geändert",
+            "Alte Version wird gespeichert",
+            "HTTP 409; aktueller Stand bleibt erhalten"
+          ],
+          [
+            "Termin wird storniert",
+            "Derselbe Zeitraum wird erneut gebucht",
+            "Neuer Termin möglich; Historie bleibt erhalten"
+          ],
+          [
+            "Raumdialog mit Version 1",
+            "Inzwischen besteht Version 2",
+            "HTTP 409; Stand von Version 2 bleibt erhalten"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Im selben Raum besteht eine Überschneidung, wenn bestehender Beginn < neues Ende und bestehendes Ende > neuer Beginn gilt. Nur aktive Buchungen zählen; bei Bearbeitung wird die eigene ID ausgeschlossen. Gleiche Startzeiten allein würden Teilüberschneidungen übersehen."
+      },
+      {
+        "type": "p",
+        "text": "Buchungen liegen Montag bis Freitag zwischen 08:00 und 20:00 Uhr am selben Tag im 15-Minuten-Raster. Die positive ganze Personenzahl darf die Kapazität nicht überschreiten. Vergangene Termine sind zur nachträglichen Dokumentation zulässig. Zeitangaben sind lokale Berliner Wandzeit; Zeitzonenwechsel und Kalendersynchronisation bleiben ausgeschlossen."
+      },
+      {
+        "type": "p",
+        "text": "Nachweiskette F02: Das Kriterium verbietet verlorene Raumänderungen; ADR 04 begründet den Versionsvergleich. test_stale_room_edit_http_preserves_current_record und E05 prüfen 409 sowie den unveränderten aktuellen Datensatz. Die Fehlerantwort allein würde den Datenerhalt nicht belegen."
+      }
+    ]
+  },
+  {
+    "title": "5 Architektur und Verantwortlichkeiten",
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Raumzeit ist ein modularer Monolith. Die Browseroberfläche und der lokale Python-Prozess bilden die Laufzeitumgebung; SQLite speichert die Daten in einer Datei. Fachliche Regeln, Ablaufsteuerung, HTTP und Persistenz sind getrennte Verantwortlichkeiten. Das folgende Diagramm zeigt sowohl den Laufzeitfluss als auch den entscheidenden Unterschied zur Richtung der Quellcodeabhängigkeiten."
+      },
+      {
+        "type": "diagram",
+        "kind": "architecture",
+        "caption": "Komponenten und Abhängigkeiten des lokalen Systems"
+      },
+      {
+        "type": "p",
+        "text": "Die Domäne enthält Datenklassen und fachliche Eingaberegeln. PlannerService koordiniert die Anwendungsfälle und verwendet dafür Verträge aus ports.py. Diese Protokolle beschreiben Raum- und Buchungsoperationen sowie den Rahmen einer gemeinsamen Transaktion. Der SQLite-Adapter implementiert die benötigten Operationen; die Webschicht setzt Daten in JSON um und behandelt Sitzung, CSRF und HTTP-Fehler. Die Application Factory erzeugt die konkrete Zusammensetzung und erlaubt getrennte Konfigurationen für regulären Betrieb, Demo und Tests [4]."
+      },
+      {
+        "type": "p",
+        "text": "Martins Dependency Rule verlangt, dass innere fachliche Bereiche keine äußeren technischen Details kennen [2]. Hier importieren domain.py und application.py weder Flask noch sqlite3. Trotzdem kann der Service zur Laufzeit die Datenbank verwenden, weil ihm die UnitOfWorkFactory übergeben wird. Die statische Abhängigkeit richtet sich somit auf einen fachlichen Vertrag. Die Architektur übernimmt diese Trennung, ohne ein vollständiges mehrschichtiges Framework nachzubauen."
+      },
+      {
+        "type": "p",
+        "text": "Der SQLite-Adapter verantwortet zusätzlich die additive Schema-Migration. Das hält Datenbanksyntax aus dem Service heraus. Ein ORM oder eine verteilte Bereitstellung würde hier weitere Abhängigkeiten schaffen, ohne die Kernfrage zu lösen. Die bewusste Grenze des Entwurfs ist ein lokaler Arbeitsbereich; ein zweiter vollständiger Speicheradapter wurde nicht umgesetzt."
+      }
+    ]
+  },
+  {
+    "title": "6 Designentscheidungen und SOLID",
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Die Designentscheidungen sind in sechs Architecture Decision Records mit Kontext, Alternativen und Konsequenzen festgehalten. SOLID dient dabei als Prüfperspektive für nachvollziehbare Verantwortlichkeiten und Verträge [3]. Nicht jedes Prinzip wird allein durch die Verwendung von Klassen oder Interfaces erfüllt; insbesondere wird eine noch nicht erprobte Austauschbarkeit nicht als erwiesenes Ergebnis dargestellt."
+      },
+      {
+        "type": "table",
+        "caption": "SOLID-Bezug am implementierten Entwurf",
+        "headers": [
+          "Prinzip",
+          "Konkrete Anwendung und Grenze"
+        ],
+        "widths": [
+          0.18,
+          0.82
+        ],
+        "rows": [
+          [
+            "SRP",
+            "HTTP, Fachabläufe und SQL liegen in getrennten Modulen. PlannerService bündelt die eng zusammengehörigen lokalen Planungsfälle; bei stark wachsendem Umfang wäre eine weitere Aufteilung zu prüfen."
+          ],
+          [
+            "OCP",
+            "Ein anderer Speicheradapter könnte über die Factory ergänzt werden. Neue Geschäftsregeln benötigen weiterhin gezielte Änderungen an Domäne oder Service; vollständige Änderungsfreiheit wird nicht behauptet."
+          ],
+          [
+            "LSP",
+            "Ein Adapter muss Bedeutung und Fehlerverhalten der Repository-Verträge erhalten, insbesondere Transaktionskonsistenz. Es gibt hier nur einen vollständigen Adapter; dessen allgemeine Austauschbarkeit ist nicht mit einem zweiten Adapter nachgewiesen."
+          ],
+          [
+            "ISP",
+            "Raum- und Buchungszugriffe haben getrennte, kleine Protokolle. Ein universelles Repository mit ungenutzten CRUD-Funktionen wird vermieden."
+          ],
+          [
+            "DIP",
+            "Die Anwendungslogik hängt von UnitOfWorkFactory und Repository-Verträgen ab. Die Webschicht injiziert den konkreten SQLite-Adapter beim Zusammensetzen."
+          ]
+        ]
+      },
+      {
+        "type": "table",
+        "caption": "Zentrale Entscheidungen und Abwägungen",
+        "headers": [
+          "ADR",
+          "Entscheidung",
+          "Alternative und Konsequenz"
+        ],
+        "widths": [
+          0.1,
+          0.39,
+          0.51
+        ],
+        "rows": [
+          [
+            "01",
+            "Flask und SQLite, lokal",
+            "Django oder ein verteilter Aufbau böten weitere Infrastruktur; der lokale Umfang bleibt einfacher vorführbar."
+          ],
+          [
+            "02",
+            "BEGIN IMMEDIATE; halboffene Intervalle",
+            "Frontendprüfung oder UNIQUE auf Beginn reichen nicht. Schreibzugriffe werden serialisiert; hohe Last bleibt offen."
+          ],
+          [
+            "03",
+            "Repositories und Unit of Work",
+            "SQL in HTTP-Routen wäre kürzer, würde aber fachliche Prüfung und technische Zugriffe vermischen."
+          ],
+          [
+            "04–06",
+            "Versionen, Migration und Regressionen",
+            "Alte Dialogstände liefern 409; alte Datenbankdateien bleiben mit Schema v2 nutzbar; fehlerhafte Token werden vor dem Vergleich abgewiesen."
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Die Bewertung zeigt die Grenze einer rein strukturellen Betrachtung: Getrennte Module und eine hohe Abdeckung verhinderten den CSRF-Randfall nicht. Der zulässige Eingabetyp des verwendeten Vergleichs [10] musste zusätzlich geprüft werden. Ebenso löst eine Schreibsperre kein länger geöffnetes, veraltetes Dialogformular. Transaktion und gelesene Versionsnummer sichern unterschiedliche Zeiträume ab."
+      }
+    ]
+  },
+  {
+    "title": "7 Datenmodell und HTTP-Schnittstelle",
+    "blocks": [
+      {
+        "type": "diagram",
+        "kind": "data",
+        "caption": "Relationales Datenmodell mit Raumbezug und Versionsfeldern"
+      },
+      {
+        "type": "p",
+        "text": "Buchungen referenzieren Räume über Fremdschlüssel; beide besitzen eine positive version. Constraints prüfen elementare Werte, der Service fachliche Zusammenhänge. Die additive Migration ergänzt rooms.version mit DEFAULT 1 und setzt PRAGMA user_version auf 2 [11]. Wiederholtes Initialisieren erhält Versionen; ein unbekanntes neueres Schema führt zum Rollback."
+      },
+      {
+        "type": "table",
+        "caption": "Öffentliche lokale HTTP-Schnittstellen",
+        "headers": [
+          "Methode und Pfad",
+          "Bedeutung",
+          "Erfolg"
+        ],
+        "widths": [
+          0.4,
+          0.47,
+          0.13
+        ],
+        "rows": [
+          [
+            "GET /api/config",
+            "Grenzen und Metadaten lesen",
+            "200"
+          ],
+          [
+            "GET /api/rooms",
+            "Räume lesen",
+            "200"
+          ],
+          [
+            "POST /api/rooms",
+            "Raum anlegen",
+            "201"
+          ],
+          [
+            "PUT /api/rooms/{id}",
+            "Raum mit zuvor gelesener Version ändern",
+            "200"
+          ],
+          [
+            "GET /api/bookings?from=…&to=…",
+            "Zeitraum lesen; optional room_id",
+            "200"
+          ],
+          [
+            "POST /api/bookings",
+            "Buchung anlegen",
+            "201"
+          ],
+          [
+            "PUT /api/bookings/{id}",
+            "Buchung mit gelesener Version ändern",
+            "200"
+          ],
+          [
+            "POST /api/bookings/{id}/cancel",
+            "Buchung mit Version stornieren",
+            "200"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Änderungen erwarten JSON und ein CSRF-Token. GET liefert die aktuelle Version, die der Dialog bei PUT mitsendet. Ohne version folgt 422, bei veraltetem Stand 409. Bestehende Datenbankdateien bleiben verwendbar; alte API-Clients müssen das Versionsfeld ergänzen."
+      },
+      {
+        "type": "code",
+        "text": "{\"room_id\": \"UUID\", \"title\": \"Projektbesprechung\",\n \"organizer\": \"Test Person\", \"participants\": 6,\n \"start\": \"2026-10-19T09:00\",\n \"end\": \"2026-10-19T10:00\", \"version\": 1}"
+      },
+      {
+        "type": "p",
+        "text": "Nicht-ASCII-Token werden vor compare_digest mit 403 abgewiesen [10]; gültige Token funktionieren weiter. Weitere Fehlercodes: 422 bei Validierung, 404 bei fehlenden Daten, 409 bei Konflikten, 400 bei ungültigem JSON und 503 mit Retry-After bei Datenbankfehlern."
+      }
+    ]
+  },
+  {
+    "title": "8 Umsetzung und Bedienablauf",
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Die Oberfläche stellt die Arbeitswoche als Kalender dar. Raumfarben erleichtern die Orientierung; ein Raumfilter reduziert die sichtbaren Termine. Parallel liegende Termine unterschiedlicher Räume erhalten nebeneinander liegende Kalenderpositionen. Auf schmalen Bildschirmen wird stattdessen eine chronologische Agenda angezeigt. Alle Ressourcen liegen lokal; eine externe Schrift- oder Grafikabfrage ist für den Betrieb nicht erforderlich."
+      },
+      {
+        "type": "image",
+        "path": "output/playwright/screenshots/desktop-E01.png",
+        "max_height": 285,
+        "caption": "Wochenkalender aus dem reproduzierbaren Desktop-Test E01; Browserdatum auf den 26.10.2026 fixiert, echte HTTP-Anwendung"
+      },
+      {
+        "type": "p",
+        "text": "Eine neue Buchung öffnet einen Dialog mit Titel, Raum, Personenzahl, verantwortlicher Person, Datum und Uhrzeit. Ein Klick auf eine freie Kalenderposition übernimmt den Tag und eine passende Startzeit. Die Formularprüfung unterstützt die Eingabe, ersetzt aber nicht die serverseitige Validierung. Nach erfolgreichem Speichern werden Wochenansicht, Liste und Kennzahlen neu geladen. Eine Konfliktmeldung lässt den Dialog geöffnet, damit der Zeitraum korrigiert werden kann."
+      },
+      {
+        "type": "p",
+        "text": "Raum- und Buchungsdialog senden ihre gelesene Version. Nach einem Konflikt bleibt das Formular geöffnet und fordert zum Schließen und Neuladen auf. Ein 15-Minuten-Termin erhält im Desktopkalender nur eine Titelzeile; Zeit und Raum bleiben über Tooltip und zugänglichen Namen verfügbar. Mobil stellt die Agenda den Termin ohne die enge Kalenderhöhe dar. E04 prüft Textgeometrie, Tastaturöffnung und die korrekten Zeitfelder."
+      },
+      {
+        "type": "p",
+        "text": "Die bestehende HTML-, CSS- und JavaScript-Struktur wurde ohne Frameworkwechsel mit einer fixierten Prettier-Version lesbar formatiert. Ein wiederholbarer Formatcheck kontrolliert diesen Zustand. Für Browsertests gelten package-lock.json und Playwright 1.64.1; für die Dokumentausgabe separate, festgelegte Python-Pakete einschließlich ReportLab und Pillow. Weder Browser- noch PDF-Werkzeuge sind Laufzeitabhängigkeiten des Raumplaners."
+      }
+    ]
+  },
+  {
+    "title": "9 Teststrategie und Auswahl der Fälle",
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Die Verifikation kombiniert isolierte Eingaberegeln, echte SQLite-Integration, HTTP-Tests und Browserassertionen. Die Testpyramide [8] wird risikoorientiert angewendet: Für verlorene Änderungen und atomare Konfliktprüfung zählt das tatsächliche Verhalten der Datenbank. Ein Mock, der immer erfolgreich schreibt, könnte diese Frage nicht beantworten."
+      },
+      {
+        "type": "test_groups"
+      },
+      {
+        "type": "p",
+        "text": "Grenzwertfälle prüfen Öffnungszeiten, positive ganze Personenzahlen und erlaubte Intervalle. Integrationstests starten unabhängige Verbindungen mit synchronisiertem Beginn. Bei konkurrierender Buchung wird genau ein Erfolg erwartet; bei zwei Änderungen mit derselben Raumversion ebenfalls genau ein Erfolg und eine stale-Ablehnung. Der aktuelle Datensatz wird anschließend vollständig verglichen."
+      },
+      {
+        "type": "table",
+        "caption": "Konkrete Kette von Anforderung bis Nachweis",
+        "headers": [
+          "Anforderung",
+          "Entscheidung",
+          "Test und kontrolliertes Ergebnis"
+        ],
+        "rows": [
+          [
+            "F02 Raumänderung",
+            "ADR 04 / 05",
+            "Alter Dialog: 409; Version 2 und aktuelle Felder bleiben erhalten"
+          ],
+          [
+            "N04 CSRF",
+            "ADR 06",
+            "Unicode-Header: 403 auf allen Änderungsrouten; gültiges Token: 201"
+          ],
+          [
+            "N07 Altbestand",
+            "ADR 05",
+            "Schema v1 → v2; Buchungen unverändert; Neustart idempotent"
+          ],
+          [
+            "N05 kurzer Termin",
+            "ADR 06",
+            "E04: sichtbare Titelzeile, Tastaturöffnung und richtige Uhrzeiten"
+          ]
+        ],
+        "widths": [
+          0.24,
+          0.22,
+          0.54
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Sechs Playwright-Szenarien laufen jeweils bei 1280 × 900 und 390 × 844 Pixeln: Anlegen/Neuladen, Überschneidung, Bearbeiten/Stornieren, Kurztermin, Raumdialog-Konflikt sowie Navigation/Filter/Suche. Der Testserver nutzt eine neue SQLite-Datei und keine API-Mocks [12]. Nur der Browser-Datumswert ist für den Kalender fixiert; Timer und reale Requests bleiben aktiv [13]. Screenshots ergänzen die Assertions. Python-Abdeckung misst ausdrücklich keinen JavaScript-Code. E06 legt Vergleichsraum und beide Buchungen selbst an und wird zusätzlich einzeln auf frischen Datenbanken geprüft."
+      }
+    ]
+  },
+  {
+    "title": "10 Ausgeführte Tests und Messergebnisse",
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Die folgende Auswertung wird beim PDF-Bau aus den tatsächlich erzeugten Berichten geladen. JUnit, Coverage, Browserreport und Prüfmanifeste gehören zu demselben Quellstand. Der ursprüngliche Abgabestand bleibt getrennt archiviert. Dadurch sind historische Befunde und aktuelle Ergebnisse unterscheidbar."
+      },
+      {
+        "type": "test_summary"
+      },
+      {
+        "type": "p",
+        "text": "Am 29.10. bestand zunächst die unveränderte Suite mit 88 Tests. Die beiden neuen Regressionsfälle scheiterten anschließend wie gemeldet: Token ä erzeugte einen TypeError, und die veraltete Raumänderung wurde mit 200 angenommen. review-before.xml bewahrt diese Befunde. Nach der Korrektur wurden alle Python-Fälle sowie die Browserfälle erneut ausgeführt. Zusätzlich wurden zwei vorhandene Datenbankdateien als isolierte Kopien zweimal initialisiert; ihre Originale blieben unverändert. Die weitere Abnahme deckte trotz zwölf erfolgreicher Browserausführungen eine Testabhängigkeit auf: E06 benötigte fremde Buchungen. Nach eigenem Fixture-Aufbau bestanden der Desktop- und Mobil-Einzellauf sowie erneut die gesamte Browsersuite (e06-before.xml, e06-desktop-alone.xml, e06-mobile-alone.xml)."
+      },
+      {
+        "type": "benchmark"
+      },
+      {
+        "type": "p",
+        "text": "Die Adaptermessung verwendet zehn Räume und 1.000 Buchungen, fünf Aufwärmläufe und 100 Testclient-Abfragen einschließlich JSON-Dekodierung. P95 ist der 95. sortierte Messwert. Sie erfasst weder Browserdarstellung noch Netzlatenz oder Dauerlast. Die Abdeckung betrifft Python einschließlich Zweigen; der CLI-Start ist ausgenommen. Bestandene Tests und hohe Abdeckung belegen die ausgewählten Fälle, keine allgemeine Fehlerfreiheit."
+      }
+    ]
+  },
+  {
+    "title": "11 KI-Nutzung und kritische Quellenarbeit",
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Der KI-Assistent erstellte Architektur-, Implementierungs-, Test- und Dokumententwürfe und führte technische Prüfungen aus. Der Studierende übernahm die praktische Funktionsprüfung, die Bewertung der Bedienbarkeit und einen eigenen Start der Python-Suite. Seine Reflexion ist persönlich geprüft, überarbeitet und freigegeben. Anhang B belegt die KI-Nutzung, Anhang D den persönlichen Prüfumfang. Zusätzliche Betreuerkommunikation wird nicht behauptet."
+      },
+      {
+        "type": "table",
+        "caption": "KI-Arbeitsschritte und angewandte Überprüfung",
+        "headers": [
+          "KI-Ergebnis",
+          "Prüfung",
+          "Verbleibende Grenze"
+        ],
+        "widths": [
+          0.25,
+          0.42,
+          0.33
+        ],
+        "rows": [
+          [
+            "Anforderungen",
+            "Abgleich mit Mail, Bewertungsmatrix und beobachtbaren Kriterien",
+            "Kein Interview oder empirisch bestätigter Bedarf"
+          ],
+          [
+            "Architektur und Code",
+            "Versionen, Migration, echte SQLite-Integration und Konkurrenzfälle",
+            "Kein zweiter vollständiger Adapter"
+          ],
+          [
+            "Testentwürfe",
+            "Ausführung; Fehlerbefunde erhalten und Korrekturen erneut geprüft",
+            "KI erzeugte auch die Tests"
+          ],
+          [
+            "Oberfläche",
+            "Wiederholbare Playwright-Assertions in Chromium bei zwei Viewports",
+            "Keine vollständige Browser- oder Screenreadermatrix"
+          ],
+          [
+            "Theorie und Text",
+            "Hersteller- und Originalquellen; Aussagen auf gemessenen Aufbau begrenzt",
+            "Persönliche Reflexion freigegeben; Quellenprüfung nicht vollständig belegt"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Die Literatur wird nach ihrem Beitrag unterschieden. MoSCoW [1] begründet den Umgang mit einem festen Termin, liefert aber keine projektspezifische Priorisierung. Diese muss aus der Kernfrage abgeleitet werden. Architekturquellen [2, 3] geben Kriterien zur Trennung von Verantwortlichkeiten; daraus folgt nicht automatisch die Notwendigkeit einer großen Frameworkstruktur. Für die konkrete Sperrwirkung einer Transaktion ist die Herstellerbeschreibung von SQLite [6] die maßgebliche technische Quelle. Diese unterschiedlichen Geltungsbereiche werden in den Designentscheidungen zusammengeführt."
+      },
+      {
+        "type": "p",
+        "text": "Auch die Testliteratur wird angepasst: Die Pyramidenidee [8] unterstützt mehrere Ebenen, ersetzt jedoch nicht die Analyse des größten Risikos. Da Konflikte zwischen zwei Schreibvorgängen datenbankspezifisch sind, sind reale Integrationstests hier aussagekräftiger als zusätzliche isolierte Mocks. Die Sicherheitsdokumentation [7] dient zur Auswahl lokaler Schutzmaßnahmen, nicht als Zertifikat für eine öffentliche Bereitstellung. Die Umsetzung bleibt ausdrücklich auf den lokalen Arbeitsbereich begrenzt."
+      },
+      {
+        "type": "p",
+        "text": "Der grüne Ausgangslauf mit 88 Fällen und die danach reproduzierten Fehler veranschaulichen ein gemeinsames Blindfeld von Implementierung und Tests. Die später entdeckte E06-Abhängigkeit zeigt zudem, warum ein erfolgreicher Gesamtlauf die Isolation einzelner Tests nicht belegt. Konkrete Gegenbeispiele und isolierte Wiederholungen verringern dieses Risiko. Die persönlichen Kontrollen ergänzen diese Nachweise, ersetzen jedoch keine vollständige unabhängige Codeprüfung."
+      }
+    ]
+  },
+  {
+    "title": "12 Bewertung der Ergebnisse und Ausblick",
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Die Kernfrage wird für den spezifizierten lokalen Aufbau beantwortet: Raumzeit verwaltet Raum- und Buchungsdaten und erzwingt die getesteten Konsistenzregeln. Entscheidend ist nicht die Kalenderdarstellung allein, sondern das Zusammenspiel von Eingaberegeln, atomarer Schreibtransaktion und eindeutigem Konfliktverhalten. Benachbarte Intervalle bleiben möglich, untersuchte Überschneidungen werden abgewiesen."
+      },
+      {
+        "type": "p",
+        "text": "Die Überarbeitung ergänzt zwei konkret belegte Lücken. Erstens werden ungültige Unicode-Token kontrolliert behandelt. Zweitens schützt eine gelesene Versionsnummer nun auch Raumdaten vor dem Überschreiben aus älteren Dialogen. Die additive Migration ermöglicht die Weiterverwendung vorhandener Datenbankdateien. Der Browserfall mit zwei gleichzeitig geöffneten Formularen zeigt den Nutzen des Versionsschutzes über einen rein sequenziellen API-Test hinaus."
+      },
+      {
+        "type": "p",
+        "text": "Python-Tests prüfen Fachregeln, Persistenz und HTTP-Grenzen; Playwright führt JavaScript im echten Chromium aus und kontrolliert Bedienabläufe. Die lokale P95-Messung bewertet die Adapterantwort. Die persönliche Erprobung des Studierenden ergänzt dies um konkrete Bedienrückmeldungen. Sie ist keine breit angelegte Nutzungsstudie und belegt ebenso wenig wie die automatisierten Tests eine Sicherheit für öffentliche Bereitstellung."
+      },
+      {
+        "type": "p",
+        "text": "Der Umfang bleibt ein lokaler Arbeitsbereich ohne Anmeldung, Rollen, Cloudbetrieb oder Serienbuchungen. Die verantwortliche Person ist ein Textfeld. Zeitangaben sind Berliner Wandzeit ohne externe Zeitzonenumrechnung. Stornierungen bleiben erhalten, aber frühere Inhaltsstände werden nicht als unveränderliches Auditlog archiviert. Es gibt keine automatische Datensicherung. Ein Downgrade auf den alten Anwendungscode ist nicht geprüft und wird nicht unterstützt."
+      },
+      {
+        "type": "p",
+        "text": "Der Studierende bestätigte die Buchungs-, Stornierungs-, Neustart- und Raumkonfliktprüfungen und startete die Python-Suite selbst: 118 Fälle bestanden. Er bewertete die Oberfläche als benutzerfreundlich und berichtete keine Unklarheiten oder Überraschungen. Daraus formulierte er Erweiterungsvorschläge für passende Raumempfehlungen und das Wiederherstellen stornierter Termine. Seine persönlich überarbeitete und freigegebene Reflexion ist unverändert in Anhang D übernommen; die dokumentierten Prüfgrenzen bleiben erhalten."
+      },
+      {
+        "type": "p",
+        "text": "Die vorgesehene Abgabe ist der 30.10.2026. Der etwa 15-minütige Gesprächstermin wird anschließend mit dem Betreuer vereinbart; ein bestätigter Termin liegt hier nicht vor. Die fachliche Vorbereitung konzentriert sich auf begründete Entscheidungen, die tatsächlichen Prüfungen und eine zutreffende Darstellung der KI-Unterstützung."
+      }
+    ]
+  }
+]

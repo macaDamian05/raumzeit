@@ -1,0 +1,17 @@
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="3.4441990000000002">
+<testsuite name="raumzeit.spec.js" timestamp="2026-10-29T21:11:50.556Z" hostname="mobile" tests="1" failures="0" skipped="0" time="1.843" errors="0">
+<testcase name="E06 Wochennavigation Raumfilter und Suche" classname="raumzeit.spec.js" time="1.843">
+<properties>
+<property name="browserVersion" value="156.0.8078.4">
+</property>
+<property name="room" value="E06 mobile">
+</property>
+</properties>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|..\qa\e06-isolated-artifacts-mobile\raumzeit-E06-Wochennavigation-Raumfilter-und-Suche-mobile\attachments\UI-Nachweis-afa1efe141cb7941cc23747a5ff27895b2754d87.png]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+</testsuites>

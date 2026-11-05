@@ -1,0 +1,355 @@
+[
+  {
+    "id": "F01",
+    "priority": "Must",
+    "title": "Räume anzeigen",
+    "story": "Als koordinierende Person möchte ich Räume mit Kapazität und Ausstattung sehen, damit ich einen geeigneten Ort wählen kann.",
+    "acceptance": [
+      "Given gespeicherte Räume, When die Raumansicht geöffnet wird, Then werden Name, Standort, Kapazität und Ausstattung angezeigt.",
+      "Given keine Räume, When die Raumansicht geöffnet wird, Then erscheint eine verständliche Aufforderung zum Anlegen eines Raums."
+    ],
+    "evidence": [
+      "test_configuration_and_empty_state",
+      "E05"
+    ],
+    "status": "umgesetzt"
+  },
+  {
+    "id": "F02",
+    "priority": "Must",
+    "title": "Räume anlegen und ändern",
+    "story": "Als koordinierende Person möchte ich Räume pflegen, damit ihre Daten für Buchungen stimmen.",
+    "acceptance": [
+      "Given ein vollständiger eindeutiger Raumname und eine Kapazität von 1 bis 500, When gespeichert wird, Then bleibt der Raum nach erneutem Abruf erhalten.",
+      "Given eine aktive Buchung mit sechs Personen, When die Raumkapazität auf fünf reduziert wird, Then wird die Änderung ohne Datenverlust abgelehnt.",
+      "Given ein mit Version 1 geöffneter Raumdialog, When bereits Version 2 gespeichert wurde, Then wird die alte Änderung mit HTTP 409 abgewiesen und Version 2 unverändert erhalten."
+    ],
+    "evidence": [
+      "test_room_edit_http",
+      "test_room_edit_protects_booked_capacity",
+      "test_duplicate_room_name_unicode_casefold",
+      "E05",
+      "test_stale_room_edit_http_preserves_current_record",
+      "test_concurrent_room_edits_only_one_succeeds"
+    ],
+    "status": "umgesetzt"
+  },
+  {
+    "id": "F03",
+    "priority": "Must",
+    "title": "Buchung anlegen",
+    "story": "Als koordinierende Person möchte ich einen freien Raum für einen Termin buchen, damit die Belegung feststeht.",
+    "acceptance": [
+      "Given ein freier Raum mit ausreichender Kapazität, When ein gültiger Termin gespeichert wird, Then entsteht genau eine aktive Buchung mit Version 1.",
+      "Given fehlende Pflichtfelder, ungültige Zeiten oder eine zu große Gruppe, When gespeichert wird, Then werden Fehler verständlich angezeigt und keine Daten geändert."
+    ],
+    "evidence": [
+      "test_create_and_persist",
+      "test_invalid_booking_rejected",
+      "test_capacity_exactly_allowed_and_excess_rejected",
+      "E01"
+    ],
+    "status": "umgesetzt"
+  },
+  {
+    "id": "F04",
+    "priority": "Must",
+    "title": "Doppelbuchungen verhindern",
+    "story": "Als koordinierende Person möchte ich überschneidende Termine im selben Raum verhindern, damit die Raumplanung widerspruchsfrei bleibt.",
+    "acceptance": [
+      "Given eine aktive Buchung 09:00–10:00, When 09:45–10:15 für denselben Raum gebucht wird, Then wird der Konflikt ohne zusätzliche Buchung abgewiesen.",
+      "Given dieselbe Ausgangslage, When 10:00–11:00 gebucht wird, Then wird der angrenzende Termin akzeptiert.",
+      "Given ein freier Zeitraum, When zwei unabhängige Verbindungen gleichzeitig buchen, Then wird genau eine Buchung angelegt."
+    ],
+    "evidence": [
+      "test_overlap_rejected_without_partial_write",
+      "test_adjacent_bookings_allowed",
+      "test_concurrent_requests_only_one_succeeds",
+      "E02",
+      "E01"
+    ],
+    "status": "umgesetzt"
+  },
+  {
+    "id": "F05",
+    "priority": "Must",
+    "title": "Buchungen ändern",
+    "story": "Als koordinierende Person möchte ich Termine bearbeiten, damit Änderungen nicht zu neuen oder widersprüchlichen Buchungen führen.",
+    "acceptance": [
+      "Given eine aktive Buchung, When sie mit aktueller Version geändert wird, Then bleibt die ID gleich und die Version steigt um eins.",
+      "Given einen zwischenzeitlich geänderten Datensatz, When eine ältere Version gespeichert wird, Then wird HTTP 409 zurückgegeben und der aktuelle Datensatz erhalten."
+    ],
+    "evidence": [
+      "test_edit_excludes_itself_and_increments_version",
+      "test_edit_conflict_rolls_back",
+      "test_stale_update_cannot_overwrite",
+      "E03"
+    ],
+    "status": "umgesetzt"
+  },
+  {
+    "id": "F06",
+    "priority": "Must",
+    "title": "Buchung stornieren",
+    "story": "Als koordinierende Person möchte ich einen Termin stornieren, damit der Raum erneut genutzt werden kann.",
+    "acceptance": [
+      "Given eine aktive Buchung, When die Stornierung bestätigt wird, Then wird ihr Status cancelled und der Zeitraum wieder buchbar.",
+      "Given eine stornierte Buchung, When sie erneut mit aktueller Version storniert wird, Then entstehen weder ein weiterer Datensatz noch eine weitere Versionsänderung."
+    ],
+    "evidence": [
+      "test_cancel_frees_slot_and_retains_history",
+      "test_stale_cancel_rejected",
+      "E03"
+    ],
+    "status": "umgesetzt"
+  },
+  {
+    "id": "F07",
+    "priority": "Must",
+    "title": "Daten dauerhaft speichern",
+    "story": "Als koordinierende Person möchte ich gespeicherte Daten nach einem Neustart wiederfinden, damit die Planung erhalten bleibt.",
+    "acceptance": [
+      "Given eine gespeicherte Buchung, When eine neue Serviceinstanz dieselbe Datenbank öffnet, Then ist die unveränderte Buchung vorhanden.",
+      "Given eine fehlgeschlagene Konfliktprüfung, When erneut abgefragt wird, Then ist ausschließlich der zuvor gültige Stand gespeichert."
+    ],
+    "evidence": [
+      "test_create_and_persist",
+      "test_overlap_rejected_without_partial_write"
+    ],
+    "status": "umgesetzt"
+  },
+  {
+    "id": "F08",
+    "priority": "Must",
+    "title": "Wochenkalender bedienen",
+    "story": "Als koordinierende Person möchte ich die Belegung einer Arbeitswoche sehen, damit ich freie Zeitfenster erkennen kann.",
+    "acceptance": [
+      "Given Termine der ausgewählten Woche, When der Kalender geladen wird, Then werden aktive Buchungen von Montag bis Freitag mit Raum und Uhrzeit angezeigt.",
+      "Given die Kalenderansicht, When vorwärts oder rückwärts navigiert wird, Then ändert sich der abgefragte Wochenzeitraum; Heute führt zur aktuellen Woche."
+    ],
+    "evidence": [
+      "test_range_is_end_exclusive_and_room_filter_works",
+      "E06"
+    ],
+    "status": "umgesetzt"
+  },
+  {
+    "id": "F09",
+    "priority": "Should",
+    "title": "Nach Raum filtern",
+    "story": "Als koordinierende Person möchte ich die Anzeige auf einen Raum begrenzen, damit ich dessen Belegung schnell erkenne.",
+    "acceptance": [
+      "Given Termine mehrerer Räume, When ein Raum ausgewählt wird, Then erscheinen nur dessen Kalendertermine.",
+      "Given ein gesetzter Filter, When Alle Räume gewählt wird, Then erscheinen wieder alle aktiven Termine der Woche."
+    ],
+    "evidence": [
+      "test_range_is_end_exclusive_and_room_filter_works",
+      "E06"
+    ],
+    "status": "umgesetzt"
+  },
+  {
+    "id": "F10",
+    "priority": "Should",
+    "title": "Buchungen durchsuchen",
+    "story": "Als koordinierende Person möchte ich Titel und verantwortliche Personen durchsuchen, damit ich einen Termin gezielt wiederfinde.",
+    "acceptance": [
+      "Given mehrere Buchungen, When ein Teil des Titels oder Personennamens eingegeben wird, Then erscheinen passende Einträge unabhängig von Groß- und Kleinschreibung.",
+      "Given keinen Treffer, When gesucht wird, Then erscheint ein verständlicher Leerzustand."
+    ],
+    "evidence": [
+      "E06"
+    ],
+    "status": "umgesetzt"
+  },
+  {
+    "id": "F11",
+    "priority": "Should",
+    "title": "Stornierungen nachvollziehen",
+    "story": "Als koordinierende Person möchte ich stornierte Termine gesondert sehen, damit ihr Verbleib nachvollziehbar bleibt.",
+    "acceptance": [
+      "Given eine stornierte Buchung, When die Historie gefiltert wird, Then bleibt sie mit dem Status Storniert sichtbar.",
+      "Given eine Stornierung, When der Wochenkalender angezeigt wird, Then blockiert die Buchung keinen Zeitraum mehr."
+    ],
+    "evidence": [
+      "test_cancel_frees_slot_and_retains_history",
+      "E03"
+    ],
+    "status": "umgesetzt"
+  },
+  {
+    "id": "F12",
+    "priority": "Could",
+    "title": "Getrennte Beispieldaten",
+    "story": "Als vorführende Person möchte ich eine getrennte Demo starten, damit ich die Anwendung ohne echte Daten zeigen kann.",
+    "acceptance": [
+      "Given eine neue Demo-Datenbank, When --demo gestartet wird, Then werden vier Räume und zwölf gültige Termine der aktuellen Woche angelegt.",
+      "Given eine bestehende Demo, When erneut gestartet wird, Then werden keine zusätzlichen Beispieldatensätze angelegt und die reguläre Datenbank bleibt unberührt."
+    ],
+    "evidence": [
+      "test_demo_is_separate_and_idempotent"
+    ],
+    "status": "umgesetzt"
+  },
+  {
+    "id": "C01",
+    "priority": "Could",
+    "title": "Kalenderexport",
+    "story": "Ein Export als ICS wäre für externe Kalender nützlich.",
+    "acceptance": [
+      "Für eine spätere Version zu spezifizieren; in dieser Abgabe nicht umgesetzt."
+    ],
+    "evidence": [],
+    "status": "zurückgestellt"
+  },
+  {
+    "id": "C02",
+    "priority": "Could",
+    "title": "Serienbuchungen",
+    "story": "Wiederkehrende Termine wären für regelmäßige Veranstaltungen nützlich.",
+    "acceptance": [
+      "Für eine spätere Version einschließlich Serienkonflikten zu spezifizieren; in dieser Abgabe nicht umgesetzt."
+    ],
+    "evidence": [],
+    "status": "zurückgestellt"
+  },
+  {
+    "id": "W01",
+    "priority": "Won't",
+    "title": "Anmeldung und Rollen",
+    "story": "Benutzerkonten und berechtigungsabhängige Änderungen sind außerhalb des lokalen Einzelarbeitsplatzes.",
+    "acceptance": [
+      "In dieser Version nicht enthalten; keine behauptete Benutzeridentität oder Zugriffstrennung."
+    ],
+    "evidence": [],
+    "status": "ausgeschlossen"
+  },
+  {
+    "id": "W02",
+    "priority": "Won't",
+    "title": "Cloudbetrieb und Mailversand",
+    "story": "Veröffentlichung und externe Benachrichtigungen werden in dieser Abgabe nicht benötigt.",
+    "acceptance": [
+      "Kein Hosting und kein E-Mail-Versand im Anwendungsumfang."
+    ],
+    "evidence": [],
+    "status": "ausgeschlossen"
+  },
+  {
+    "id": "N01",
+    "priority": "Must",
+    "title": "Verständliche Validierung",
+    "story": "Fehleingaben sollen keine ungültigen Datensätze erzeugen.",
+    "acceptance": [
+      "Pflichtfelder, positive ganze Personenzahl, Kapazitätsgrenze, Werktag, gleicher Tag und 15-Minuten-Raster werden serverseitig geprüft.",
+      "Validierungsfehler liefern HTTP 422 und eine deutschsprachige Meldung; Überschneidungen liefern 409."
+    ],
+    "evidence": [
+      "test_invalid_booking_rejected",
+      "test_validation_and_unknown_record_statuses",
+      "E02"
+    ],
+    "status": "umgesetzt"
+  },
+  {
+    "id": "N02",
+    "priority": "Must",
+    "title": "Atomare Konsistenz",
+    "story": "Prüfen und Schreiben müssen auch bei Konkurrenz eine konsistente Belegung erhalten.",
+    "acceptance": [
+      "Genau eine von zwei konkurrierenden Buchungen desselben Raums und Zeitraums wird akzeptiert.",
+      "Fehlgeschlagene Änderungen lassen den bisherigen Datensatz unverändert."
+    ],
+    "evidence": [
+      "test_concurrent_requests_only_one_succeeds",
+      "test_edit_conflict_rolls_back"
+    ],
+    "status": "umgesetzt"
+  },
+  {
+    "id": "N03",
+    "priority": "Should",
+    "title": "Lokale Antwortzeit",
+    "story": "Die Wochenabfrage soll bei kleinen lokalen Datenbeständen zügig antworten.",
+    "acceptance": [
+      "Bei 1.000 Buchungen, zehn Räumen, fünf Aufwärmläufen und 100 Testclient-Abfragen liegt das empirische 95. Perzentil unter 250 ms.",
+      "Die Messung wird ausdrücklich als lokale Adaptermessung ohne Netz und Browser dokumentiert."
+    ],
+    "evidence": [
+      "benchmark.json"
+    ],
+    "status": "gemessen"
+  },
+  {
+    "id": "N04",
+    "priority": "Must",
+    "title": "Lokaler Schutz",
+    "story": "Unbeabsichtigte Änderungen durch fremde Webseiten und einfache Eingabeangriffe sollen erschwert werden.",
+    "acceptance": [
+      "Alle unterstützten Änderungsrouten erfordern ein sitzungsgebundenes CSRF-Token; fremde Hostnamen werden abgewiesen.",
+      "SQL-Parameter und textContent behandeln eingegebene Inhalte als Daten; ein öffentliches Hosting wird nicht gestartet.",
+      "Given ein nicht-ASCII-haltiges oder falsches CSRF-Token, When eine Änderungsroute aufgerufen wird, Then folgt kontrolliert HTTP 403; mit gültigem Token bleibt eine gültige Änderung möglich."
+    ],
+    "evidence": [
+      "test_mutations_require_csrf",
+      "test_untrusted_host_blocked",
+      "test_sql_parameterization_preserves_literal_data",
+      "test_non_ascii_csrf_is_forbidden",
+      "test_unicode_csrf_rejected_on_every_mutation",
+      "test_valid_csrf_still_allows_creation"
+    ],
+    "status": "umgesetzt"
+  },
+  {
+    "id": "N05",
+    "priority": "Should",
+    "title": "Mobile Bedienbarkeit",
+    "story": "Die Kernansichten sollen auch bei schmaler Browserbreite nutzbar bleiben.",
+    "acceptance": [
+      "Bei einem 390-Pixel-Viewport ersetzt eine Agenda den engen Wochenkalender und es gibt keinen horizontalen Seitenüberlauf.",
+      "Der Buchungsdialog ist sichtbar und die Felder haben Beschriftungen; eine vollständige WCAG-Konformität wird nicht behauptet.",
+      "Given ein 15-Minuten-Termin, When er im Kalender angezeigt wird, Then ist eine Titelzeile ohne vertikales Abschneiden sichtbar und der Dialog per Tastatur erreichbar; mobil wird der Termin in der Agenda geöffnet."
+    ],
+    "evidence": [
+      "E01 (mobile)",
+      "E04 (desktop/mobile)"
+    ],
+    "status": "geprüft"
+  },
+  {
+    "id": "N06",
+    "priority": "Must",
+    "title": "Reproduzierbare Ausführung",
+    "story": "Die technische Prüfung soll mit dokumentierten Befehlen und festgelegten Abhängigkeiten wiederholbar sein.",
+    "acceptance": [
+      "README, festgelegte Python-Pakete und Startskripte beschreiben die lokale Einrichtung.",
+      "tools/verify.py erzeugt tatsächliche JUnit- und Coverage-Ergebnisse in isolierten Testdatenbanken.",
+      "Browserprüfung und PDF-Erstellung besitzen getrennte dokumentierte Abhängigkeiten und wiederholbare Befehle; Python-Abdeckung wird nicht als Browserabdeckung ausgegeben."
+    ],
+    "evidence": [
+      "junit.xml",
+      "environment.json",
+      "requirements.txt",
+      "requirements-portfolio.txt",
+      "package-lock.json",
+      "browser_source_manifest.json"
+    ],
+    "status": "umgesetzt"
+  },
+  {
+    "id": "N07",
+    "priority": "Must",
+    "title": "Vorhandene Datenbanken weiterverwenden",
+    "story": "Vorhandene Raum- und Buchungsdaten sollen mit dem Versionsschutz weiter nutzbar bleiben.",
+    "acceptance": [
+      "Given ein Schema-v1-Datenbestand ohne Raumversion, When die neue Anwendung initialisiert, Then werden Raumversion 1 und Schema-Version 2 ergänzt, ohne bestehende Buchungen oder Raumfelder zu verlieren.",
+      "Given eine bereits migrierte Datenbank, When erneut initialisiert wird, Then bleiben Daten und vorhandene Versionsnummern erhalten. Eine unbekannte neuere Schema-Version wird nicht herabgesetzt."
+    ],
+    "evidence": [
+      "test_legacy_migration_preserves_data_and_is_idempotent",
+      "test_newer_schema_not_downgraded",
+      "migration.json"
+    ],
+    "status": "geprüft"
+  }
+]

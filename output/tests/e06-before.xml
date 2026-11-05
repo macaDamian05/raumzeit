@@ -1,0 +1,62 @@
+<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="10.116863">
+<testsuite name="raumzeit.spec.js" timestamp="2026-10-29T19:33:57.806Z" hostname="desktop" tests="1" failures="1" skipped="0" time="8.417" errors="0">
+<testcase name="E06 Wochennavigation Raumfilter und Suche" classname="raumzeit.spec.js" time="8.417">
+<properties>
+<property name="browserVersion" value="156.0.8078.4">
+</property>
+<property name="room" value="E06 desktop">
+</property>
+</properties>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|..\qa\e06-isolated-artifacts\raumzeit-E06-Wochennavigation-Raumfilter-und-Suche-desktop\test-failed-1.png]]
+
+[[ATTACHMENT|..\qa\e06-isolated-artifacts\raumzeit-E06-Wochennavigation-Raumfilter-und-Suche-desktop\attachments\UI-Nachweis-a9a03470cd21db0a6503f42d4d8b89dacef9b926.png]]
+
+[[ATTACHMENT|..\qa\e06-isolated-artifacts\raumzeit-E06-Wochennavigation-Raumfilter-und-Suche-desktop\error-context.md]]
+
+[[ATTACHMENT|..\qa\e06-isolated-artifacts\raumzeit-E06-Wochennavigation-Raumfilter-und-Suche-desktop\trace.zip]]
+]]>
+</system-out>
+<failure message="expect(received).toBeGreaterThan(expected)" type="expect.toBeGreaterThan">
+<![CDATA[  [desktop] › raumzeit.spec.js:204:1 › E06 Wochennavigation Raumfilter und Suche ───────────────────
+
+    Error: expect(received).toBeGreaterThan(expected)
+
+    Expected: > 1
+    Received:   1
+
+    Call Log:
+    - Timeout 7000ms exceeded while waiting on the predicate
+
+      218 |   await expect(eventFor(page, title, testInfo.project.name)).toBeVisible();
+      219 |   await page.locator("#room-filter").selectOption("");
+    > 220 |   await expect.poll(() => page.locator("#day-columns .calendar-booking").count()).toBeGreaterThan(1);
+          |                                                                                   ^
+      221 |   await page.getByRole("link", { name: /^Alle Buchungen/ }).click();
+      222 |   await page.locator("#booking-search").fill("TEST PERSON");
+      223 |   await expect.poll(() => page.locator("#booking-list .booking-row").count()).toBeGreaterThan(1);
+        at D:\Uni und Arbeit\Software Engineering\Raumplaner\browser_tests\raumzeit.spec.js:220:83
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\output\qa\e06-isolated-artifacts\raumzeit-E06-Wochennavigation-Raumfilter-und-Suche-desktop\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: UI-Nachweis (image/png) ─────────────────────────────────────────────────────────
+    ..\output\qa\e06-isolated-artifacts\raumzeit-E06-Wochennavigation-Raumfilter-und-Suche-desktop\attachments\UI-Nachweis-a9a03470cd21db0a6503f42d4d8b89dacef9b926.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\output\qa\e06-isolated-artifacts\raumzeit-E06-Wochennavigation-Raumfilter-und-Suche-desktop\error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\output\qa\e06-isolated-artifacts\raumzeit-E06-Wochennavigation-Raumfilter-und-Suche-desktop\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\output\qa\e06-isolated-artifacts\raumzeit-E06-Wochennavigation-Raumfilter-und-Suche-desktop\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+</testsuite>
+</testsuites>

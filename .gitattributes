@@ -1,0 +1,7 @@
+# Preserve the verified submission bytes used by the SHA-256 evidence manifests.
+* -text
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.zip binary

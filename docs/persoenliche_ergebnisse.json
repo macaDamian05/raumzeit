@@ -1,0 +1,218 @@
+{
+  "status": "abgeschlossen_mit_dokumentierten_grenzen",
+  "person": "Justin Kolar",
+  "durchgefuehrt_am": "2026-10-29",
+  "rueckmeldung_im_chat": "2026-10-29: Persönliche Prüfung dokumentiert; aktuell gespeicherte, vom Nutzer überarbeitete Reflexion ausdrücklich als Endfassung freigegeben",
+  "beobachtungen": [
+    {
+      "schritt": "P1",
+      "rueckgemeldet_am": "2026-10-29",
+      "originalrueckmeldung": "hat funktioniert würde ich sagen\nder vorherige test mit dem buchen funktioniert auch",
+      "quelle": "Rückmeldung des Nutzers und beigefügter Screenshot; Bildauswertung durch KI-Assistenten",
+      "screenshot": "docs/nachweise/P1_Raumverwaltung_2026-10-29.png",
+      "sichtbarer_befund": {
+        "ansicht": "Räume verwalten",
+        "raumname": "Prüfraum Damian",
+        "kapazitaet": 6,
+        "standort": "Eigene Prüfung"
+      },
+      "abgrenzung": "Start/Bedienung positiv zurückgemeldet. Eigene fachliche Erklärung zur Kapazität noch nicht mitgeteilt. Aus dem Bild wird kein Buchungsergebnis abgeleitet."
+    },
+    {
+      "schritt": "P2",
+      "rueckgemeldet_am": "2026-10-29",
+      "quelle": "Allgemeine Nutzerrückmeldung zum vorherigen Buchungstest",
+      "abgrenzung": "Konkrete Zeiten, Annahme/Ablehnung, Meldungen, gespeicherte Termine und eigene Erklärung noch nicht mitgeteilt; P2 nicht als abgeschlossen bestätigt."
+    },
+    {
+      "schritt": "P1",
+      "rueckgemeldet_am": "2026-10-29",
+      "quelle": "Antwort des Nutzers auf die Kapazitätsfrage (Annotation 1)",
+      "originalrueckmeldung": "da soll eine meldung kommen dass zu viele personen ausgewählt wurde für diesen raum. eventuell mit empfehlung eines anderen raumes der die nötigen kapazitäten hat",
+      "einordnung": "Eigene Erklärung zum erwarteten Verhalten bei sieben Personen und sechs Plätzen. Eine tatsächlich ausgeführte Sieben-Personen-Buchung wird nicht behauptet.",
+      "verbesserungsidee": "Passenden anderen Raum mit ausreichender Kapazität empfehlen; Nutzervorschlag für eine mögliche spätere Version, keine vorhandene oder neu beauftragte Funktion."
+    },
+    {
+      "schritt": "P2",
+      "rueckgemeldet_am": "2026-10-29",
+      "quelle": "Drei Antworten des Nutzers, zugeordnet zur unmittelbar vorgegebenen Reihenfolge",
+      "originalrueckmeldung": [
+        "funktioniert",
+        "fehler",
+        "funktioniert"
+      ],
+      "aufgabenkontext": {
+        "raum": "Prüfraum Damian",
+        "datum": "2026-10-30",
+        "personen": 4
+      },
+      "versuche": [
+        {
+          "zeitraum": "10:00–10:15",
+          "nutzeraussage": "funktioniert"
+        },
+        {
+          "zeitraum": "10:00–10:30",
+          "nutzeraussage": "fehler"
+        },
+        {
+          "zeitraum": "10:15–10:30",
+          "nutzeraussage": "funktioniert"
+        }
+      ],
+      "abgrenzung": "Ergebnisfolge vom Nutzer berichtet. Wortlaut der Fehlermeldung, HTTP-Status und Zahl gespeicherter Termine sind nicht mitgeteilt. Eigene Erklärung zur unterschiedlichen Behandlung der Intervalle fehlt noch."
+    },
+    {
+      "schritt": "P2",
+      "rueckgemeldet_am": "2026-10-29",
+      "quelle": "Tatsächliche Antworten des Nutzers auf die beiden P2-Nachfragen",
+      "original_fehlermeldung": "Der Raum ist von 10:00 bis 10:15 bereits gebucht. Bitte eine andere Zeit oder einen anderen Raum wählen.",
+      "original_erklaerung": "weil der termin vorher quasi auch früher beendet werden könnte und dann kann man halt da schon rein oder wenn person 1 ein gespräch mit 2 hat und direkt danach ein gespräch mit 3 dann ist das auch praktischer",
+      "einordnung": "Die Ergebnisfolge und die konkrete Konfliktmeldung bestätigen die persönliche Bedienprüfung. Der Nutzer nennt direkt aufeinanderfolgende Gespräche als praktischen Nutzen; die Bezugnahme auf ein mögliches früheres Ende wurde fachlich präzisiert.",
+      "ki_erlaeuterung": "Die gespeicherte Endzeit ist maßgeblich: Bei Ende 10:15 kann der nächste Termin um 10:15 beginnen. Ein tatsächliches früheres Gesprächsende ändert die gespeicherte Reservierung nicht automatisch. Vorzeitige Freigabe erfordert eine entsprechende Änderung oder Stornierung.",
+      "abgrenzung": "Die Präzisierung stammt vom KI-Assistenten; sie wird nicht als eigene korrigierte Erklärung oder bestätigte Lernerfahrung des Nutzers ausgegeben. HTTP-Status und exakte Datensatzzahl wurden nicht persönlich zurückgemeldet."
+    },
+    {
+      "schritt": "P3",
+      "rueckgemeldet_am": "2026-10-29",
+      "quelle": "Direkte Rückmeldung des Nutzers auf die P3-Bedienaufgaben",
+      "originalrueckmeldung": "ist alles richtig\nanmerkung: wär cool könnte man stornierte termine wiederherstellen",
+      "aufgabenkontext": [
+        "Ersten Termin von 10:00–10:15 auf 10:30–10:45 ändern und kontrollieren",
+        "Diesen Termin stornieren und in der Historie prüfen",
+        "Server beenden, erneut starten und beide Termine kontrollieren",
+        "Anschlusstermin 10:15–10:30 bleibt aktiv"
+      ],
+      "einordnung": "Der Nutzer bestätigt den angeleiteten Ablauf zusammenfassend als richtig. Einzelne Meldungen, Screenshots oder eigenständig formulierte Statusbeschreibungen liegen für P3 nicht vor.",
+      "verbesserungsidee": "Stornierte Termine wiederherstellen können; tatsächlicher Vorschlag des Nutzers für eine spätere Version, keine vorhandene Funktion und kein zusätzlicher Implementierungsauftrag.",
+      "offen": "Die eigene Erklärung des Unterschieds zwischen Stornieren und Löschen wurde noch nicht mitgeteilt und wird in der Reflexion abgeglichen."
+    },
+    {
+      "schritt": "P4",
+      "rueckgemeldet_am": "2026-10-29",
+      "quelle": "Direkte Nutzerrückmeldung nach der Anleitung mit zwei geöffneten Raumdialogen",
+      "original_fehlermeldung": "Der Raum wurde zwischenzeitlich geändert. Bitte den Dialog schließen, die Seite neu laden und erneut versuchen.",
+      "original_weitere_rueckmeldung": "alles hat richtig funktioniert\nwegen possible override wärs unteranderem doof",
+      "aufgabenkontext": "Erster Tab ändert Kapazität auf acht; zweiter, vorher geöffneter Dialog versucht den Standort zu ändern; anschließend neu laden und aktuellen Datensatz kontrollieren.",
+      "einordnung": "Der Nutzer berichtet die konkrete Konfliktmeldung, bestätigt den Ablauf allgemein und benennt mögliches Überschreiben als Problem. Die genauen nachgeladenen Feldwerte wurden nicht einzeln genannt. Ein persönlich abgelesener HTTP-Status wird nicht behauptet.",
+      "eigene_erklaerung": "Als Risiko nennt der Nutzer das mögliche Überschreiben (possible override) durch den älteren Dialog."
+    },
+    {
+      "schritt": "P5",
+      "rueckgemeldet_am": "2026-10-29",
+      "quelle": "Nutzerrückmeldung und Screenshot des selbst gestarteten verify.py-Laufs; ergänzender KI-Abgleich der vorhandenen Ergebnisdateien",
+      "originalrueckmeldung": "das sagt der test\nden regressionstest machen wir jetzt nicht\nder wird auch safe klappen",
+      "screenshot": "docs/nachweise/P5_Nutzerlauf_2026-10-29/PowerShell_Testergebnis.png",
+      "befehl": ".\\.venv\\Scripts\\python.exe tools\\verify.py",
+      "sichtbares_ergebnis": {
+        "passed": 118,
+        "pytest_dauer_sekunden": 2.12,
+        "python_abdeckung_gerundet_prozent": 99,
+        "statements": 370,
+        "missing_statements": 3,
+        "branches": 76,
+        "partial_branches": 1
+      },
+      "maschineller_zeitnachweis": {
+        "started_utc": "2026-10-29T20:30:20.871729+00:00",
+        "finished_utc": "2026-10-29T20:30:24.710730+00:00"
+      },
+      "gesicherte_ergebnisdateien": [
+        {
+          "path": "docs/nachweise/P5_Nutzerlauf_2026-10-29/junit.xml",
+          "sha256": "4fb7eea008a537df7d49c1eaf4c77bdef9a4c9e2f131a00e5333b5559eb85545"
+        },
+        {
+          "path": "docs/nachweise/P5_Nutzerlauf_2026-10-29/coverage.json",
+          "sha256": "7f156906245aa304efd150d7187b7c749d4465a109f295ecdb32413be8862cf9"
+        },
+        {
+          "path": "docs/nachweise/P5_Nutzerlauf_2026-10-29/coverage.txt",
+          "sha256": "fe3225df19ce37a92bf679eeab53d0fa951d46d3efe3abe08ccb7ded056da4ee"
+        },
+        {
+          "path": "docs/nachweise/P5_Nutzerlauf_2026-10-29/environment.json",
+          "sha256": "7cf3b8687e3e72c68fda14d17209becfa0050262c2bdaba8b57208dace8951af"
+        },
+        {
+          "path": "docs/nachweise/P5_Nutzerlauf_2026-10-29/pytest.txt",
+          "sha256": "52b2e5f5bf68b34019eea2a39906b9542a18f6493cdb425f65be74dcbef25fc1"
+        },
+        {
+          "path": "docs/nachweise/P5_Nutzerlauf_2026-10-29/source_manifest.json",
+          "sha256": "a1a5289a482d84ed828beaeeb8320c62dd06020b6de0c027f8d4441f5855ecca"
+        }
+      ],
+      "einordnung": "Der Nutzer hat die bestehende automatisierte Python-Suite selbst gestartet und das Ergebnis mitgeteilt. Der Raum-Regressionsfall ist in den 118 Fällen enthalten und bestanden; kein gesonderter Lauf dieses Falls ist erforderlich.",
+      "auslassung": "Die zusätzlich vorgeschlagene persönliche Code-Durchsicht und Erklärung der letzten Assertion wird auf ausdrücklichen Wunsch des Nutzers ausgelassen. Sie wird nicht als durchgeführt oder verstanden eingetragen.",
+      "abgrenzung": "Tests und Implementierung wurden KI-gestützt erstellt; der persönlich gestartete Lauf ist keine Behauptung einer eigenständigen Testentwicklung oder vollständigen Codeprüfung. Die Zuversicht des Nutzers ersetzt keinen Nachweis."
+    },
+    {
+      "schritt": "P6",
+      "rueckgemeldet_am": "2026-10-29",
+      "quelle": "Direkte Antworten des Nutzers auf die Reflexionsfragen",
+      "originalantworten": {
+        "anschlusstermin": "hab ich doch schon beantwortet (ergänze wenn nötig mit deinen worten)",
+        "stornieren_und_loeschen": "bleibt gespeichert sodass man später machen kann dass man (wie gesagt was ich mir wünsche) das wiederherstellen kann - ein löschen würde das nicht möglich machen",
+        "eigene_einschaetzung": "war nichts unklar oder überraschend --> ist sehr benutzerfreundlich aufgebaut"
+      },
+      "einordnung": "Die frühere Begründung aufeinanderfolgender Gespräche bleibt erhalten. Der Nutzer erlaubt eine sprachliche Ergänzung. Die gespeicherte Endzeit wird als fachliche KI-Präzisierung formuliert; keine neue Lernerfahrung wird behauptet. Die Erklärung zur Stornierung und die Einschätzung zur Bedienbarkeit stammen vom Nutzer.",
+      "abgrenzung": "Wiederherstellen ist ein Wunsch für eine spätere Version, keine bestehende Funktion. Eine vollständige persönliche Code- oder Quellenprüfung wurde nicht bestätigt. Freigabe steht noch aus."
+    },
+    {
+      "schritt": "P6",
+      "rueckgemeldet_am": "2026-10-29",
+      "quelle": "Ausdrückliche Freigabe und Überarbeitungsangabe des Nutzers im Chat",
+      "originalauszug": "Ich habe die persönliche Reflexion selbst überarbeitet. Bitte verwende die aktuell gespeicherte Fassung als meine freigegebene Endfassung und ändere ihren Inhalt nicht eigenständig.",
+      "einordnung": "Die gespeicherte Fassung wurde gelesen und vor dem Statusupdate gesichert. Ausschließlich Vorspann und Überschrift wurden aktualisiert. Reflexionstext und Grenzabschnitt bleiben wortgleich.",
+      "grenzen": "Die dokumentierte Auslassung der persönlichen Code-Durchsicht und die begrenzten Einzelbelege werden durch die Freigabe nicht aufgehoben."
+    }
+  ],
+  "reflexion": {
+    "status": "persoenlich_geprueft_ueberarbeitet_und_freigegeben",
+    "path": "docs/persoenliche_reflexion.md",
+    "grundlage": "KI-gestützt formuliert, vom Nutzer persönlich geprüft und überarbeitet; gespeicherte Fassung ausdrücklich freigegeben",
+    "persoenlich_freigegeben": true,
+    "freigegeben_am": "2026-10-29",
+    "body_sha256": "3a431186bcd1d68463d339ff782f372efb2e578cfe2d7bb6d700336a3c759632",
+    "limits_sha256": "806c13315da4ef03a088ff234f000cf2c2d58b56dc813a5479fda90fe5389d5e",
+    "file_sha256": "c476f41b4eccfdb842341c8f06899ff9227e93a1c5c184d54f8eff57c9457398"
+  },
+  "fachliche_freigabe": true,
+  "hinweis": "Nur nach tatsächlicher persönlicher Durchführung und Rückmeldung ergänzen. KI-Prüfungen sind kein persönlicher Nachweis.",
+  "pruefschritte": [
+    {
+      "id": "P1",
+      "status": "abgeschlossen",
+      "nachweis": "Screenshot, positive Start-/Bedienrückmeldung und eigene Erklärung zur Kapazität; keine pauschale fachliche Freigabe."
+    },
+    {
+      "id": "P2",
+      "status": "abgeschlossen",
+      "nachweis": "Persönliche Ergebnisfolge und Konfliktmeldung; frühere Begründung erhalten, Endzeit-Präzisierung in der persönlich überarbeiteten Reflexion freigegeben."
+    },
+    {
+      "id": "P3",
+      "status": "abgeschlossen",
+      "nachweis": "Allgemeine Bestätigung des angeleiteten Ablaufs; anschließend eigene Erklärung zum gespeicherten Storno gegenüber Löschen und Wunsch nach Wiederherstellung."
+    },
+    {
+      "id": "P4",
+      "status": "abgeschlossen",
+      "nachweis": "Konkrete Meldung zum zwischenzeitlich geänderten Raum, allgemeine Bestätigung des Ablaufs und eigene Benennung des Überschreibungsrisikos."
+    },
+    {
+      "id": "P5",
+      "status": "testlauf_bestaetigt_codedurchsicht_ausgelassen",
+      "nachweis": "Screenshot: selbst gestarteter verify.py-Lauf, 118 passed; Ergebnisdateien separat gesichert.",
+      "ausgelassen_auf_wunsch": "Persönliche Code-Durchsicht und Erklärung der Assertion im Raum-Regressionsfall."
+    },
+    {
+      "id": "P6",
+      "status": "abgeschlossen",
+      "nachweis": "Persönliche Überarbeitung und ausdrückliche Freigabe der aktuell gespeicherten Reflexion im Chat am 29.10.2026."
+    }
+  ],
+  "pruefung_abgeschlossen": true,
+  "freigabeumfang": "Dokumentierter persönlicher Prüfumfang einschließlich ausdrücklich ausgelassener Code-Durchsicht; keine nachträglich behaupteten Tätigkeiten und keine Bestätigung unbekannter Moodle-Vorgaben."
+}

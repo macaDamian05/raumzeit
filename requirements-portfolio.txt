@@ -1,0 +1,13 @@
+# Separate Werkzeuge für PDF-Erstellung und Prüfung; keine App-Laufzeitabhängigkeiten.
+reportlab==4.4.9
+Pillow==12.3.0
+pypdf==6.10.0
+pdfplumber==0.11.9
+pypdfium2==5.14.0
+
+# Transitive Abhängigkeiten des geprüften PDF-Werkzeugsatzes.
+charset-normalizer==3.5.2
+pdfminer.six==20251230
+cryptography==50.0.2
+cffi==2.1.1
+pycparser==3.12

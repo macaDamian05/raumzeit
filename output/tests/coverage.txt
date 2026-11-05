@@ -1,0 +1,11 @@
+Name                      Stmts   Miss Branch BrPart  Cover   Missing
+---------------------------------------------------------------------
+raumzeit\__init__.py          1      0      0      0   100%
+raumzeit\application.py      64      0     20      0   100%
+raumzeit\demo.py             13      0      4      0   100%
+raumzeit\domain.py           91      0     22      0   100%
+raumzeit\ports.py             8      0      0      0   100%
+raumzeit\storage.py          98      3     16      0    97%   137-139
+raumzeit\web.py              95      0     14      1    99%   21->23
+---------------------------------------------------------------------
+TOTAL                       370      3     76      1    99%

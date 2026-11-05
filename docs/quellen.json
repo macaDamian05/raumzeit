@@ -1,0 +1,119 @@
+[
+  {
+    "id": 1,
+    "author": "Agile Business Consortium",
+    "year": "2026",
+    "title": "What is MoSCoW Prioritization?",
+    "url": "https://www.agilebusiness.org/resource/what-is-moscow-prioritization/",
+    "accessed": "19.10.2026",
+    "use": "Definition und Begründung der vier Prioritätsklassen; Anwendung auf den begrenzten Abgabeumfang."
+  },
+  {
+    "id": 2,
+    "author": "Martin, Robert C.",
+    "year": "2012",
+    "title": "The Clean Architecture",
+    "url": "https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html",
+    "accessed": "19.10.2026",
+    "use": "Richtung der Abhängigkeiten; bewusste Vereinfachung für den lokalen Monolithen."
+  },
+  {
+    "id": 3,
+    "author": "Martin, Robert C.",
+    "year": "2020",
+    "title": "Solid Relevance",
+    "url": "https://blog.cleancoder.com/uncle-bob/2020/10/18/Solid-Relevance.html",
+    "accessed": "19.10.2026",
+    "use": "SOLID-Prinzipien und ihre konkrete Anwendbarkeit sowie Grenzen des Nachweises."
+  },
+  {
+    "id": 4,
+    "author": "Pallets Projects",
+    "year": "o. J.",
+    "title": "Application Factories. Flask Documentation 3.1.x",
+    "url": "https://flask.palletsprojects.com/en/stable/patterns/appfactories/",
+    "accessed": "19.10.2026",
+    "use": "Erzeugung isoliert konfigurierbarer Anwendungen für regulären Betrieb, Demo und Tests."
+  },
+  {
+    "id": 5,
+    "author": "Pallets Projects",
+    "year": "o. J.",
+    "title": "Testing Flask Applications. Flask Documentation 3.1.x",
+    "url": "https://flask.palletsprojects.com/en/stable/testing/",
+    "accessed": "19.10.2026",
+    "use": "pytest-Fixtures und Testclient; Grenzen einer Prüfung ohne echten Browser."
+  },
+  {
+    "id": 6,
+    "author": "SQLite Developers",
+    "year": "o. J.",
+    "title": "Transaction",
+    "url": "https://www.sqlite.org/lang_transaction.html",
+    "accessed": "19.10.2026",
+    "use": "BEGIN IMMEDIATE und Serialisierung der Schreibtransaktionen; mögliche SQLITE_BUSY-Fehler."
+  },
+  {
+    "id": 7,
+    "author": "Pallets Projects",
+    "year": "o. J.",
+    "title": "Security Considerations. Flask Documentation 3.1.x",
+    "url": "https://flask.palletsprojects.com/en/stable/web-security/",
+    "accessed": "19.10.2026",
+    "use": "CSRF, Hostprüfung, Header, Requestgrößen und Grenzen eines lokalen HTTP-Aufbaus."
+  },
+  {
+    "id": 8,
+    "author": "Vocke, Ham",
+    "year": "2018",
+    "title": "The Practical Test Pyramid",
+    "url": "https://martinfowler.com/articles/practical-test-pyramid.html",
+    "accessed": "19.10.2026",
+    "use": "Unterschiedliche Testgranularitäten; kritische Anpassung statt fester Mengenquoten."
+  },
+  {
+    "id": 9,
+    "author": "Hartenstein, Sandro",
+    "year": "2025",
+    "title": "Software Engineering. Anforderungen und SoftwareArchitektur Basics",
+    "url": "",
+    "accessed": "19.10.2026",
+    "use": "Bereitgestellte Kursfolien: 2-1 Anforderungen.pdf, Folien 20–26; 2-3 SoftwareArchitektur Basics.pdf, Folien 16–18. Fachlicher Kursbezug; keine behauptete vollständige Prüfungsordnung 2026."
+  },
+  {
+    "id": 10,
+    "author": "Python Software Foundation",
+    "year": "o. J.",
+    "title": "hmac.compare_digest. Python 3.12 Documentation",
+    "url": "https://docs.python.org/3.12/library/hmac.html#hmac.compare_digest",
+    "accessed": "29.10.2026",
+    "use": "ASCII-Anforderung des zeitkonstanten Zeichenkettenvergleichs; kontrollierte Ablehnung ungültiger Token."
+  },
+  {
+    "id": 11,
+    "author": "SQLite Developers",
+    "year": "o. J.",
+    "title": "ALTER TABLE",
+    "url": "https://www.sqlite.org/lang_altertable.html",
+    "accessed": "29.10.2026",
+    "use": "Additive Schema-Migration mit NOT NULL, Default 1 und CHECK-Constraint."
+  },
+  {
+    "id": 12,
+    "author": "Microsoft Playwright",
+    "year": "o. J.",
+    "title": "Web server. Playwright Documentation",
+    "url": "https://playwright.dev/docs/test-webserver",
+    "accessed": "29.10.2026",
+    "use": "Automatischer Testserver mit isolierten Daten und wiederholbarer Browserprüfung."
+  },
+  {
+    "id": 13,
+    "author": "Microsoft Playwright",
+    "year": "o. J.",
+    "title": "Clock. Playwright Documentation",
+    "url": "https://playwright.dev/docs/clock",
+    "accessed": "29.10.2026",
+    "use": "Fixierter Browser-Datumswert bei weiterhin laufenden Timern für reproduzierbare Kalenderfälle."
+  }
+]
